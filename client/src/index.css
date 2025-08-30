@@ -1,3 +1,79 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* --- AURORA & GRID BACKGROUND STYLES --- */
+
+/* Main container for all background effects */
+.background-container {
+  position: relative; /* Establishes a stacking context */
+  overflow: hidden;   /* Keeps effects contained */
+}
+
+/* Aurora Blob 1 */
+.background-container::before {
+  content: '';
+  position: absolute;
+  top: -20vh;
+  left: -20vw;
+  width: 70vw;
+  height: 70vw;
+  border-radius: 50%;
+  background-color: #8e44ad; /* accent color */
+  opacity: 0.15;
+  filter: blur(120px);
+  animation: drift 25s infinite linear alternate;
+  z-index: 1; /* Lowest layer */
+}
+
+/* Aurora Blob 2 */
+.background-container::after {
+  content: '';
+  position: absolute;
+  bottom: -20vh;
+  right: -20vw;
+  width: 60vw;
+  height: 60vw;
+  border-radius: 50%;
+  background-color: #3498db; /* A complementary blue */
+  opacity: 0.15;
+  filter: blur(120px);
+  animation: drift 25s infinite linear alternate;
+  animation-delay: -12s;
+  z-index: 1; /* Lowest layer */
+}
+
+/* The moving grid layer */
+.grid-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: scrollGrid 30s linear infinite;
+  z-index: 2; /* Sits on top of the aurora, but below content */
+}
+
+/* Keyframes for the drifting aurora blobs */
+@keyframes drift {
+  from {
+    transform: rotate(0deg) scale(1) translateX(-20%);
+  }
+  to {
+    transform: rotate(360deg) scale(1.5) translateX(20%);
+  }
+}
+
+/* Keyframes for the scrolling grid */
+@keyframes scrollGrid {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 40px 80px;
+  }
+}
