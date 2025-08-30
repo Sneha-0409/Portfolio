@@ -132,14 +132,14 @@ const Home = () => {
                             onClick={(e) => handleScroll(e, 'projects')}
                             className="bg-accent text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-lg shadow-accent/50 hover:shadow-xl hover:shadow-accent/70 hover:bg-blue-700"
                         >
-                            My Projects
+                           See my Work
                         </a>
                         <a
                             href="#contact"
                             onClick={(e) => handleScroll(e, 'contact')}
                             className="bg-gray-700 text-white font-semibold py-3 px-6 rounded-lg hover:bg-gray-600 transition"
                         >
-                            Contact Me
+                            Get in touch
                         </a>
                     </div>
                 </motion.div>
