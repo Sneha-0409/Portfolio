@@ -1,11 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
-  --bg-color: #eef2f5;
-  --text-primary: #111;
-  --bar-bg: #000;
-  --bar-text: #fff;
+  --bg-color: #ffffff;
+  --text-primary: #000000;
+  --galaxy-bg: #030305;
+  --bar-bg: #ffffff;
+  --bar-text: #000000;
   
+  --stars-1: 
+    radial-gradient(1px 1px at 15% 20%, rgba(255, 255, 255, 0.3), transparent),
+    radial-gradient(1px 1px at 35% 45%, rgba(255, 255, 255, 0.4), transparent),
+    radial-gradient(1.5px 1.5px at 55% 85%, rgba(255, 255, 255, 0.5), transparent),
+    radial-gradient(1px 1px at 85% 25%, rgba(255, 255, 255, 0.3), transparent),
+    radial-gradient(1px 1px at 95% 75%, rgba(255, 255, 255, 0.4), transparent);
+    
+  --stars-2:
+    radial-gradient(1.5px 1.5px at 25% 35%, rgba(255, 255, 255, 0.6), transparent),
+    radial-gradient(2px 2px at 65% 15%, rgba(255, 255, 255, 0.5), transparent),
+    radial-gradient(1.5px 1.5px at 75% 65%, rgba(255, 255, 255, 0.7), transparent),
+    radial-gradient(1px 1px at 45% 95%, rgba(255, 255, 255, 0.4), transparent);
+    
+  --stars-3:
+    radial-gradient(2px 2px at 10% 80%, rgba(255, 255, 255, 0.8), transparent),
+    radial-gradient(2.5px 2.5px at 80% 40%, rgba(255, 255, 255, 0.9), transparent),
+    radial-gradient(2px 2px at 40% 50%, rgba(255, 255, 255, 1), transparent);
+
   font-family: 'Inter', system-ui, sans-serif;
 }
 
@@ -24,6 +47,33 @@ body {
 .app-container {
   width: 100vw;
   height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shared rotating galaxy background */
+.loading-pill::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 250vmax;
+  height: 250vmax;
+  background-color: var(--galaxy-bg);
+  background-image: 
+    /* Nebula clouds */
+    radial-gradient(circle at 15% 50%, rgba(46, 11, 84, 0.4), transparent 40%),
+    radial-gradient(circle at 85% 30%, rgba(11, 26, 84, 0.4), transparent 40%),
+    var(--stars-1), var(--stars-2), var(--stars-3);
+  background-size: 100% 100%, 100% 100%, 500px 500px, 400px 400px, 300px 300px;
+  animation: rotateGalaxy 60s linear infinite;
+  z-index: -1;
+  pointer-events: none;
+}
+
+@keyframes rotateGalaxy {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
 .portfolio-container {
@@ -50,22 +100,34 @@ body {
   font-size: 1.1rem;
 }
 
-.nav-bars {
+/* Floating Navbar */
+.floating-nav {
+  position: absolute;
+  top: 2rem;
+  left: 50%;
   display: flex;
-  gap: 0.4rem;
-  align-items: center;
+  gap: 3rem;
+  background: rgba(30, 30, 30, 0.9);
+  padding: 1.2rem 3rem;
+  border-radius: 50px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  z-index: 100;
+  pointer-events: auto;
 }
 
-.bar {
-  width: 3px;
-  background-color: #111;
-  border-radius: 2px;
+.floating-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.05rem;
+  transition: color 0.3s ease;
+  letter-spacing: 0.02em;
 }
 
-.bar:nth-child(1) { height: 12px; }
-.bar:nth-child(2) { height: 24px; }
-.bar:nth-child(3) { height: 16px; }
-.bar:nth-child(4) { height: 20px; }
+.floating-nav a:hover {
+  color: #c2b5f5;
+}
 
 /* Main layout */
 .portfolio-main {
@@ -74,7 +136,8 @@ body {
   justify-content: center;
   align-items: center;
   position: relative;
-  pointer-events: none; /* Let cursor pass through to fluid canvas */
+  pointer-events: none;
+  /* Let cursor pass through to fluid canvas */
 }
 
 /* Background Marquee */
@@ -106,8 +169,13 @@ body {
 }
 
 @keyframes marquee-scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 /* The wrapper for the Pill to put it above the text */
@@ -117,18 +185,20 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 20;
-  pointer-events: auto; /* Re-enable pointer events for the interactive pill */
+  pointer-events: auto;
+  /* Re-enable pointer events for the interactive pill */
 }
 
 /* Pill specific styles */
 .loading-pill {
-  background: linear-gradient(145deg, #181818, #000000);
+  /* Removed static background colors, using ::before pseudo-element for rotation */
+  background: transparent;
   /* The lavender glow on the left side, combined with the drop shadow */
-  box-shadow: 
+  box-shadow:
     -10px 0px 40px 5px rgba(194, 181, 245, 0.85),
     -4px 0px 15px 2px rgba(194, 181, 245, 1),
-    0 25px 50px -12px rgba(0, 0, 0, 0.5), 
-    0 0 20px rgba(0,0,0,0.2);
+    0 25px 50px -12px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(0, 0, 0, 0.2);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -139,7 +209,8 @@ body {
 
 .pill-content {
   position: relative;
-  width: 220px; /* Big enough to fit the loading text */
+  width: 220px;
+  /* Big enough to fit the loading text */
   height: 30px;
   display: flex;
   align-items: center;
@@ -161,7 +232,7 @@ body {
   left: 0;
   top: 0;
   height: 100%;
-  background: var(--bar-bg);
+  background: var(--galaxy-bg);
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -169,7 +240,8 @@ body {
 }
 
 .pill-text-loading {
-  width: 220px; /* Match parent width to keep text stationary */
+  width: 220px;
+  /* Match parent width to keep text stationary */
   position: absolute;
   left: 0;
   text-align: center;
@@ -191,4 +263,370 @@ body {
   background-color: #fff;
   border-radius: 1px;
   z-index: 3;
+}
+
+/* Split Layout Styles (rendered inside PillLoader) */
+.split-layout {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  gap: 4rem;
+  z-index: 10;
+  padding: 2rem;
+  color: #fff; /* Ensure text is white over dark background */
+  pointer-events: none; /* Let mouse movements reach the WebGL canvas */
+}
+
+.left-column {
+  flex: 0 0 350px;
+  display: flex;
+  align-items: center;
+}
+
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 24px;
+  pointer-events: auto; /* Enable interaction for image */
+  transition: box-shadow 0.4s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* No colored glow */
+}
+
+.image-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0px; /* Hidden initially */
+  border-radius: 24px;
+  /* Rainbow colors matching the fluid cursor */
+  background: linear-gradient(120deg, #ff0055, #00ffcc, #ffaa00, #9900ff, #00ffcc, #ff0055);
+  background-size: 300% 300%;
+  z-index: -1;
+  animation: spreadingColors 4s linear infinite;
+  opacity: 0;
+  filter: blur(6px); /* Very tight blur so the colors mix, but NOT a massive aura */
+  transition: inset 0.4s ease, opacity 0.4s ease;
+}
+
+@keyframes spreadingColors {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.image-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  background: #111;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+/* Scan Effect Styles */
+.scan-line {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #8a78e6;
+  box-shadow: 0 0 10px 2px rgba(138, 120, 230, 0.8), 0 0 20px 5px rgba(138, 120, 230, 0.4);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.cyber-corners {
+  position: absolute;
+  inset: 15px;
+  pointer-events: none;
+  z-index: 5;
+  animation: camPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes camPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.corner {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border-color: rgba(138, 120, 230, 1);
+  border-style: solid;
+  border-width: 0;
+  opacity: 1;
+}
+
+.corner.top-left {
+  top: 0;
+  left: 0;
+  border-top-width: 5px;
+  border-left-width: 5px;
+}
+
+.corner.top-right {
+  top: 0;
+  right: 0;
+  border-top-width: 5px;
+  border-right-width: 5px;
+}
+
+.corner.bottom-left {
+  bottom: 0;
+  left: 0;
+  border-bottom-width: 5px;
+  border-left-width: 5px;
+}
+
+.corner.bottom-right {
+  bottom: 0;
+  right: 0;
+  border-bottom-width: 5px;
+  border-right-width: 5px;
+}
+
+.image-wrapper:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6); /* Deep standard shadow, no fuzzy glow */
+}
+
+.image-wrapper:hover::before {
+  opacity: 1;
+  inset: -6px; /* Colors literally spread out from behind the image! */
+}
+
+.image-wrapper:hover .hero-image {
+  transform: scale(1.05);
+}
+
+.right-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.greeting {
+  color: #c2b5f5;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.name-title {
+  font-size: 4rem;
+  font-weight: 800;
+  margin-bottom: 0.2rem;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+}
+
+.role-title {
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: #f0f0f0;
+  margin-bottom: 2rem;
+}
+
+.description {
+  color: #a0a0a0;
+  line-height: 1.6;
+  font-size: 1.05rem;
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+}
+
+.description p {
+  margin-bottom: 1rem;
+}
+
+.italic-quote {
+  font-style: italic;
+  color: #666;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.resume-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #8a78e6;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  pointer-events: auto; /* Enable interaction for button */
+}
+
+.resume-btn:hover {
+  background-color: #7360d8;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-icon {
+  color: #888;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  pointer-events: auto; /* Enable interaction for icon */
+}
+
+.social-icon:hover {
+  color: #fff;
+}
+
+@media (max-width: 900px) {
+  .split-layout {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+  }
+  .left-column {
+    flex: 0 0 auto;
+    justify-content: center;
+  }
+  .image-wrapper {
+    max-width: 300px;
+  }
+  .actions {
+    justify-content: center;
+  }
+}
+
+/* Scrollable Sections */
+.portfolio-section {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: #c2b5f5;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.about-section {
+  background: rgba(0, 0, 0, 0.4);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.section-content {
+  max-width: 800px;
+  text-align: center;
+  padding: 2rem;
+  color: #fff;
+}
+
+.section-title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  color: #c2b5f5;
+}
+
+.section-description {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #a0a0a0;
+}
+
+/* Skills 3D Starfield */
+.skills-section {
+  background: transparent; /* lets the galaxy show through completely */
+  position: relative;
+  overflow: hidden;
+}
+
+.skills-header {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  text-align: center;
+  width: 90%;
+  max-width: 800px;
+}
+
+.skills-title {
+  text-shadow: 0 0 20px rgba(0,0,0,0.8);
+  margin-bottom: 0.5rem;
+}
+
+.skills-subtitle {
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 10px rgba(0,0,0,0.8);
+  opacity: 0.9;
+}
+
+.tech-starfield-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tech-star {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  font-weight: 700;
+  font-size: 1.1rem;
+  pointer-events: none;
 }

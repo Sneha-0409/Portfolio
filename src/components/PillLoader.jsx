@@ -21,6 +21,57 @@ function FluidWelcome() {
         VELOCITY_DISSIPATION: 1.2,
       });
     }
+
+    // Forward mouse/pointer events to the canvas so the fluid effect works even when covered by the scrollable container
+    const forwardEvent = (e) => {
+      if (e.isTrusted && canvasRef.current) {
+        let clonedEvent;
+        if (window.PointerEvent && e instanceof PointerEvent) {
+          clonedEvent = new PointerEvent(e.type, {
+            bubbles: false, cancelable: true,
+            clientX: e.clientX, clientY: e.clientY,
+            pointerId: e.pointerId, pointerType: e.pointerType,
+            isPrimary: e.isPrimary,
+          });
+        } else if (window.TouchEvent && e instanceof TouchEvent) {
+           clonedEvent = new TouchEvent(e.type, {
+             bubbles: false, cancelable: true,
+             touches: e.touches, changedTouches: e.changedTouches
+           });
+        } else if (e instanceof MouseEvent) {
+          clonedEvent = new MouseEvent(e.type, {
+            bubbles: false, cancelable: true,
+            clientX: e.clientX, clientY: e.clientY,
+          });
+        }
+        
+        if (clonedEvent) {
+          canvasRef.current.dispatchEvent(clonedEvent);
+        }
+      }
+    };
+
+    window.addEventListener('pointermove', forwardEvent);
+    window.addEventListener('pointerdown', forwardEvent);
+    window.addEventListener('pointerup', forwardEvent);
+    window.addEventListener('mousemove', forwardEvent);
+    window.addEventListener('mousedown', forwardEvent);
+    window.addEventListener('mouseup', forwardEvent);
+    window.addEventListener('touchmove', forwardEvent, { passive: false });
+    window.addEventListener('touchstart', forwardEvent, { passive: false });
+    window.addEventListener('touchend', forwardEvent);
+
+    return () => {
+      window.removeEventListener('pointermove', forwardEvent);
+      window.removeEventListener('pointerdown', forwardEvent);
+      window.removeEventListener('pointerup', forwardEvent);
+      window.removeEventListener('mousemove', forwardEvent);
+      window.removeEventListener('mousedown', forwardEvent);
+      window.removeEventListener('mouseup', forwardEvent);
+      window.removeEventListener('touchmove', forwardEvent);
+      window.removeEventListener('touchstart', forwardEvent);
+      window.removeEventListener('touchend', forwardEvent);
+    };
   }, []);
 
   return (
@@ -36,10 +87,11 @@ function FluidWelcome() {
   );
 }
 
-export default function PillLoader() {
+export default function PillLoader({ children }) {
   const [progress, setProgress] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
+  const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
     const duration = 2000;
@@ -58,6 +110,7 @@ export default function PillLoader() {
           setIsLoaded(true);
           setTimeout(() => {
             setIsExpanded(true);
+            setTimeout(() => setShowContent(true), 1200); // WELCOME vanishes and content shows after 1.2s
           }, 1100); // Wait for the wipe to finish, then expand
         }, 300);
       }
@@ -67,41 +120,60 @@ export default function PillLoader() {
   }, []);
 
   return (
-    <motion.div 
+    <motion.div
       className="loading-pill"
       initial={{ opacity: 0, scale: 0.9, width: 280, height: 75, borderRadius: 50 }}
-      animate={{ 
-        opacity: 1, 
+      animate={{
+        opacity: 1,
         scale: 1,
         width: isExpanded ? '100vw' : 280,
         height: isExpanded ? '100vh' : 75,
-        borderRadius: isExpanded ? 0 : 50
+        borderRadius: isExpanded ? 0 : 50,
+        borderWidth: isExpanded ? 0 : 1
       }}
-      transition={{ 
-        duration: isExpanded ? 0.9 : 0.6, 
-        ease: [0.76, 0, 0.24, 1] 
+      transition={{
+        duration: isExpanded ? 0.9 : 0.6,
+        ease: [0.76, 0, 0.24, 1]
       }}
     >
       {/* Background Fluid & Sparkles (Only render when expanded) */}
       {isExpanded && <FluidWelcome />}
 
+      {/* SVG Filter for grain dissolve effect */}
+      <svg width="0" height="0" style={{ position: 'absolute' }}>
+        <filter id="grainy-blur">
+          <feTurbulence type="fractalNoise" baseFrequency="0.12" numOctaves="2" result="noise" />
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="30" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+      </svg>
+
       <div className="pill-content" style={{ zIndex: 10 }}>
         {/* Revealed Text (WELCOME) */}
-        <motion.div 
-          className="pill-text-base"
-          animate={{ 
-            scale: isExpanded ? 1.4 : 1, 
-            letterSpacing: isExpanded ? '0.5em' : '0.2em' 
-          }}
-          transition={{ duration: 1, ease: [0.76, 0, 0.24, 1] }}
-        >
-          WELCOME
-        </motion.div>
+        <AnimatePresence>
+          {!showContent && (
+            <motion.div
+              className="pill-text-base"
+              animate={{
+                scale: isExpanded ? 1.4 : 1,
+                letterSpacing: isExpanded ? '0.5em' : '0.2em'
+              }}
+              exit={{ 
+                opacity: 0, 
+                scale: 1.6,
+                filter: "url(#grainy-blur) blur(4px)",
+                transition: { duration: 0.6, ease: "easeOut" } 
+              }}
+              transition={{ duration: 1, ease: [0.76, 0, 0.24, 1] }}
+            >
+              WELCOME
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* Wiping Overlay (LOADING) */}
         <AnimatePresence>
           {!isExpanded && (
-            <motion.div 
+            <motion.div
               className="pill-text-overlay"
               initial={{ width: '100%' }}
               animate={{ width: isLoaded ? '0%' : '100%' }}
@@ -118,7 +190,7 @@ export default function PillLoader() {
         {/* The White Wiper Rectangle */}
         <AnimatePresence>
           {!isExpanded && (
-            <motion.div 
+            <motion.div
               className="pill-wiper"
               initial={{ left: '100%' }}
               animate={{ left: isLoaded ? '0%' : '100%' }}
@@ -128,6 +200,18 @@ export default function PillLoader() {
           )}
         </AnimatePresence>
       </div>
+
+      {/* Child Content */}
+      {showContent && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.2 }}
+          style={{ position: 'absolute', zIndex: 20, width: '100%', height: '100%', pointerEvents: 'none' }}
+        >
+          {children}
+        </motion.div>
+      )}
     </motion.div>
   );
 }
