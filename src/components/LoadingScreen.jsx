@@ -16,7 +16,7 @@ export default function LoadingScreen({ onComplete }) {
     <motion.div
       className="loading-screen"
       initial={{ opacity: 1 }}
-      exit={{ opacity: 0, scale: 1.1, filter: 'blur(10px)', transition: { duration: 0.4, ease: 'easeInOut' } }}
+      exit={{ opacity: 0, scale: 1.5, transition: { duration: 0.5, ease: 'backIn' } }}
       style={{
         position: 'fixed',
         top: 0, left: 0, right: 0, bottom: 0,
@@ -52,7 +52,10 @@ export default function LoadingScreen({ onComplete }) {
         onAnimationComplete={(def) => {
           if (phase === 'drawing' && def.clipPath) {
             setPhase('glow');
-            setTimeout(() => setPhase('splitting'), 500);
+            setTimeout(() => {
+              setPhase('splitting');
+              onComplete();
+            }, 500);
           }
         }}
         style={{
@@ -71,7 +74,7 @@ export default function LoadingScreen({ onComplete }) {
               ? { x: '-40vw', y: '-15vh', rotate: -15, scale: 4, opacity: 0, filter: 'blur(15px)' } 
               : { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1, filter: 'blur(0px)' }
           }
-          transition={{ duration: 2.2, ease: "easeInOut" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
           Sne
         </motion.div>
@@ -81,47 +84,10 @@ export default function LoadingScreen({ onComplete }) {
               ? { x: '40vw', y: '20vh', rotate: 20, scale: 4, opacity: 0, filter: 'blur(15px)' } 
               : { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1, filter: 'blur(0px)' }
           }
-          transition={{ duration: 2.2, ease: "easeInOut" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
           ha
         </motion.div>
-      </motion.div>
-
-      {/* Welcome Text */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8, filter: 'blur(10px)' }}
-        animate={
-          phase === 'splitting'
-            ? { 
-                opacity: [0, 1, 1, 0], 
-                scale: [0.9, 1, 1, 0.95], 
-                filter: ['blur(10px)', 'blur(0px)', 'blur(0px)', 'blur(10px)'] 
-              }
-            : { opacity: 0, scale: 0.8, filter: 'blur(10px)' }
-        }
-        transition={{ 
-          duration: 2.0, 
-          times: [0, 0.15, 0.6, 1], 
-          ease: "easeInOut",
-          delay: 0.1
-        }}
-        onAnimationComplete={() => {
-          if (phase === 'splitting') {
-            onComplete();
-          }
-        }}
-        style={{
-          position: 'absolute',
-          fontFamily: "'Inter', sans-serif",
-          fontSize: 'clamp(0.9rem, 2vw, 1.5rem)',
-          fontWeight: 800,
-          color: '#000000',
-          letterSpacing: '0.4em',
-          textTransform: 'uppercase',
-          zIndex: 10
-        }}
-      >
-        WELCOME
       </motion.div>
     </motion.div>
   );
