@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import sketchReal from '../assets/sneha_sketch_real.jpg';
+import sketchReal from '../assets/sneha.jpg';
 import sketchPortrait from '../assets/sketch_portrait.png';
 import sketchAnimal from '../assets/sketch_animal.png';
 import sketchLandscape from '../assets/sketch_landscape.png';

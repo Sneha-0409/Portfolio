@@ -3,46 +3,53 @@ import React from 'react';
 import imgCyberpunk from '../assets/proj_cyberpunk_1782069653371.png';
 import imgGalaxy from '../assets/proj_galaxy_1782069664458.png';
 import imgAi from '../assets/proj_ai_1782069677055.png';
+import imgCinematch from '../assets/CinematchAI.png';
+import imgCampus from '../assets/Campus.png';
+import imgFace from '../assets/face.png';
 
 const otherProjectsData = [
   {
     id: 1,
-    title: 'Tata Steel – L&D',
-    image: imgCyberpunk,
-    description: 'An internal web application designed to manage employee training programs, track learning progress, schedule workshops, and provide...',
+    title: 'CineMatch AI: Intelligent Movie Recommendation System',
+    image: imgCinematch,
+    description: 'A content-based movie recommendation system that uses AI to suggest similar movies based on genres, cast, directors, keywords, and plot. Built with Python, Scikit-Learn, and Streamlit.',
     techStack: [
-      'https://img.shields.io/badge/typescript-%23007ACC.svg?style=flat-square&logo=typescript&logoColor=white',
-      'https://img.shields.io/badge/javascript-%23323330.svg?style=flat-square&logo=javascript&logoColor=%23F7DF1E',
-      'https://img.shields.io/badge/Next-black?style=flat-square&logo=next.js&logoColor=white'
+      'https://img.shields.io/badge/Python-%2314354C.svg?style=flat-square&logo=python&logoColor=white',
+      'https://img.shields.io/badge/Scikit--Learn-%23F7931E.svg?style=flat-square&logo=scikit-learn&logoColor=white',
+      'https://img.shields.io/badge/Machine%20Learning-%23e91e63.svg?style=flat-square',
+      'https://img.shields.io/badge/Data%20Science-%2300bcd4.svg?style=flat-square'
     ],
-    demoLink: '#',
-    githubLink: '#'
+    demoLink: 'https://cinematch-ai-movie.streamlit.app/',
+    githubLink: 'https://github.com/Sneha-0409/CineMatch-AI-Intelligent-Movie-Recommendation-System'
   },
   {
     id: 2,
-    title: 'DevElevate',
-    image: imgGalaxy,
-    description: 'A dynamic platform crafted to empower developers with curated resources, real-world projects, coding challenges, and learning tools...',
+    title: 'CampusImpact DAO',
+    image: imgCampus,
+    description: 'A blockchain-based platform that empowers students to submit, vote on, and fund campus innovation projects through decentralized governance on Polygon.',
     techStack: [
-      'https://img.shields.io/badge/typescript-%23007ACC.svg?style=flat-square&logo=typescript&logoColor=white',
-      'https://img.shields.io/badge/javascript-%23323330.svg?style=flat-square&logo=javascript&logoColor=%23F7DF1E',
-      'https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=flat-square&logo=tailwind-css&logoColor=white'
+      'https://img.shields.io/badge/React-%2320232A.svg?style=flat-square&logo=react&logoColor=61DAFB',
+      'https://img.shields.io/badge/Next-black?style=flat-square&logo=next.js&logoColor=white',
+      'https://img.shields.io/badge/Smart%20Contract-%234200ff.svg?style=flat-square',
+      'https://img.shields.io/badge/Polygon-%238248FF.svg?style=flat-square&logo=polygon&logoColor=white',
+      'https://img.shields.io/badge/Web3%20Wallet-%23F6851B.svg?style=flat-square&logo=metamask&logoColor=white'
     ],
     demoLink: '#',
-    githubLink: '#'
+    githubLink: 'https://github.com/Sneha-0409/CAMPUSIMPACT'
   },
   {
     id: 3,
-    title: 'Smart Hospital',
-    image: imgAi,
-    description: 'The Hospital Management System optimizes queuing and resource availability to improve patient care. It integrates with city-wide...',
+    title: 'Face_Attendance_System_Project',
+    image: imgFace,
+    description: 'Automates daily attendance using face recognition and real-time detection. It captures and logs attendance with accurate time-stamping into a CSV file. By recognizing faces through a webcam and matching them with a pre-trained database, it ensures efficient, reliable, and contactless record-keeping.',
     techStack: [
-      'https://img.shields.io/badge/javascript-%23323330.svg?style=flat-square&logo=javascript&logoColor=%23F7DF1E',
-      'https://img.shields.io/badge/typescript-%23007ACC.svg?style=flat-square&logo=typescript&logoColor=white',
-      'https://img.shields.io/badge/python-3670A0?style=flat-square&logo=python&logoColor=ffdd54'
+      'https://img.shields.io/badge/NumPy-%23013243.svg?style=flat-square&logo=numpy&logoColor=white',
+      'https://img.shields.io/badge/Pandas-%23150458.svg?style=flat-square&logo=pandas&logoColor=white',
+      'https://img.shields.io/badge/OpenCV-%235C3EE8.svg?style=flat-square&logo=opencv&logoColor=white',
+      'https://img.shields.io/badge/Python-%2314354C.svg?style=flat-square&logo=python&logoColor=white'
     ],
     demoLink: '#',
-    githubLink: '#'
+    githubLink: 'https://github.com/Sneha-0409/Face_Attendance_System_Project'
   }
 ];
 

@@ -4,9 +4,9 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 const journeyData = [
   {
     id: 1,
-    year: '2022',
-    title: 'The Curiosity Phase',
-    description: 'Discovered the world of web development. Started with HTML, CSS, and JavaScript fundamentals. Built my first static websites and fell in love with creating things for the web.',
+    year: 'Jun 2026 - Present',
+    title: 'Google AI/ML Virtual Intern by Google Developers Groups via EduSkills Academy',
+    description: 'Currently pursuing the Google AI/ML Virtual Internship by Google Developer Groups (GDG) via EduSkills Academy, gaining hands-on experience in Machine Learning, Computer Vision, and CNNs.',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <polyline points="16 18 22 12 16 6"></polyline>
@@ -17,9 +17,9 @@ const journeyData = [
   },
   {
     id: 2,
-    year: '2024',
-    title: 'Engineering Foundation',
-    description: 'Started B.Tech in Information Technology. Diving deep into data structures, algorithms, and software engineering principles. Building full-stack applications with React, Node.js, and databases.',
+    year: 'Mar 2026 - Present',
+    title: 'Secretary - IEEE Robotics and Automation Society, MITS-DU',
+    description: 'Serving as the Secretary for the IEEE Robotics and Automation Society, Student Branch Chapter at MITS-DU. Focused on team leadership and organizing tech-related initiatives.',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
@@ -29,9 +29,9 @@ const journeyData = [
   },
   {
     id: 3,
-    year: '2025',
-    title: 'Product Builder',
-    description: 'Launched ThinkVerse - a SaaS platform for structured idea organization. Building more complex products, learning about deployment, cloud architecture, and user experience.',
+    year: 'Sep 2025 - Present',
+    title: 'Content & Documentation - Google Developer Groups MITS-DU Gwalior',
+    description: 'Part of the Content & Documentation team at GDGoC MITS-DU Gwalior. Focused on content writing, technical documentation, and community resources.',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>

@@ -9,7 +9,7 @@ import GithubStats from './GithubStats';
 import PhotoGallery from './PhotoGallery';
 import Contact from './Contact';
 import heroImg from '../assets/sneha.jpg';
-import heroSketch from '../assets/sneha_sketch_real.jpg';
+import heroSketch from '../assets/sketch_portrait.png';
 import FallingTechBackground from './FallingTechBackground';
 import MacDock from './MacDock';
 
@@ -293,7 +293,7 @@ export default function Portfolio() {
 
                 <div className="description">
                   <p>
-                    I'm a 3rd year undergraduate Computer Science student at MITS-DU, Gwalior, with a strong interest in AI/ML, Data Science, Full Stack Development and Software Engineering. I primarily code in C++ and enjoy developing Intelligent solutions that solve real-world challenges. I'm an active open-source contributor (NSoC '26 & GSSoC '26), a 3× hackathon finalist, and someone who believes there's always something new to learn. I also serve as the Secretary of IEEE RAS SBC MITS-DU and a Core Member of Google Developers Group on Campus MITS-DU, helping organize and grow the campus tech community.
+                    I'm a 3rd year undergraduate Computer Science student at MITS-DU, Gwalior, with a strong interest in AI/ML, Data Science, Full Stack Development and Software Engineering. I primarily code in C++ and enjoy developing Intelligent solutions that solve real-world challenges. I'm an active open-source contributor (NSoC '26 & GSSoC '26), a 3× hackathon finalist, and someone who believes there's always something new to learn. I also serve as the Class Representative, Secretary of IEEE RAS SBC MITS-DU and a Core Member of Google Developers Group on Campus MITS-DU, helping organize and grow the campus tech community.
                   </p>
                   <p className="italic-quote">
                     Something I believe: Tomorrow doesn't need to be perfect. It just needs to be tomorrow.
