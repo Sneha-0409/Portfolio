@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Portfolio from './components/Portfolio';
 import LoadingScreen from './components/LoadingScreen';
+import SparkleTrail from './components/SparkleTrail';
+import FluidCursor from './components/FluidCursor';
 import { AnimatePresence } from 'framer-motion';
 import './index.css';
 
@@ -9,6 +11,8 @@ function App() {
 
   return (
     <div className="app-container">
+      <FluidCursor />
+      <SparkleTrail />
       <Portfolio />
       <AnimatePresence>
         {isLoading && (

@@ -90,279 +90,279 @@ export default function Portfolio() {
 
       <main className="portfolio-main">
         <div
-              className="portfolio-scroll-container"
-              ref={setScrollContainer}
-              onScroll={handleScroll}
-              style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column', overflowY: 'auto', pointerEvents: 'auto', scrollBehavior: 'smooth' }}
-            >
-              {/* Floating Navbar */}
-              <motion.nav
-                className="floating-nav"
-                initial={{ y: -20, opacity: 0, x: "-50%" }}
-                animate={{ y: 0, opacity: 1, x: "-50%" }}
-                transition={{ duration: 0.8, delay: 0.5 }}
-              >
-                <a href="#home" className={`nav-link ${activeSection === 'home' ? 'active' : ''}`}>Home</a>
-                <a href="#about" className={`nav-link ${activeSection === 'about' ? 'active' : ''}`}>About</a>
-                <a href="#skills" className={`nav-link ${activeSection === 'skills' ? 'active' : ''}`}>Skills</a>
-                <a href="#projects" className={`nav-link ${activeSection === 'projects' ? 'active' : ''}`}>Projects</a>
-                <a href="#journey" className={`nav-link ${activeSection === 'journey' ? 'active' : ''}`}>Experience</a>
-                <a href="#achievements" className={`nav-link ${activeSection === 'achievements' ? 'active' : ''}`}>Achievements</a>
-              </motion.nav>
+          className="portfolio-scroll-container"
+          ref={setScrollContainer}
+          onScroll={handleScroll}
+          style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column', overflowY: 'auto', pointerEvents: 'auto', scrollBehavior: 'smooth' }}
+        >
+          {/* Floating Navbar */}
+          <motion.nav
+            className="floating-nav"
+            initial={{ y: -20, opacity: 0, x: "-50%" }}
+            animate={{ y: 0, opacity: 1, x: "-50%" }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+          >
+            <a href="#home" className={`nav-link ${activeSection === 'home' ? 'active' : ''}`}>Home</a>
+            <a href="#about" className={`nav-link ${activeSection === 'about' ? 'active' : ''}`}>About</a>
+            <a href="#skills" className={`nav-link ${activeSection === 'skills' ? 'active' : ''}`}>Skills</a>
+            <a href="#projects" className={`nav-link ${activeSection === 'projects' ? 'active' : ''}`}>Projects</a>
+            <a href="#journey" className={`nav-link ${activeSection === 'journey' ? 'active' : ''}`}>Experience</a>
+            <a href="#achievements" className={`nav-link ${activeSection === 'achievements' ? 'active' : ''}`}>Achievements</a>
+          </motion.nav>
 
-              <section id="home" className="s-sharma-section">
+          <section id="home" className="s-sharma-section">
 
-                <div className="s-hero-grid">
-                  <div className="s-hero-left">
-                    <motion.div
-                      className="s-status-badge"
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5 }}
-                      viewport={{ once: true }}
-                    >
-                      <span className="s-dot"></span> AVAILABLE FOR OPPORTUNITIES
-                    </motion.div>
+            <div className="s-hero-grid">
+              <div className="s-hero-left">
+                <motion.div
+                  className="s-status-badge"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  viewport={{ once: true }}
+                >
+                  <span className="s-dot"></span> AVAILABLE FOR OPPORTUNITIES
+                </motion.div>
 
-                    <motion.h1
-                      className="s-main-title"
-                      initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.8, delay: 0.2 }}
-                      viewport={{ once: true }}
-                    >
-                      <span className="s-title-solid">Building</span><br />
-                      <span className="s-title-purple">Intelligent</span><br />
-                      <span className="s-title-outline">Systems.</span>
-                    </motion.h1>
+                <motion.h1
+                  className="s-main-title"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  viewport={{ once: true }}
+                >
+                  <span className="s-title-solid">Building</span><br />
+                  <span className="s-title-purple">Ideas</span><br />
+                  <span className="s-title-outline">into Reality!</span>
+                </motion.h1>
 
-                    <motion.p
-                      className="s-desc"
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.8, delay: 0.4 }}
-                      viewport={{ once: true }}
-                    >
-                      I'm <strong style={{ color: '#fff' }}>Sneha</strong> — CS engineer obsessed with <strong style={{ color: '#fff' }}>AI/ML</strong> and full-stack development. I turn complex ideas into products that actually work.
-                    </motion.p>
+                <motion.p
+                  className="s-desc"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
+                  viewport={{ once: true }}
+                >
+                  Hi I'm <strong style={{ color: '#fff' }}>Sneha</strong> - a Computer Science engineer passionate about <strong style={{ color: '#fff' }}>programming</strong> and <strong style={{ color: '#fff' }}>AI/ML</strong>. I build intelligent, scalable products that solve real-world problems.
+                </motion.p>
 
-                    <motion.div
-                      className="s-actions"
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.8, delay: 0.6 }}
-                      viewport={{ once: true }}
-                    >
-                      <button className="s-btn-primary">VIEW PROJECTS</button>
-                    </motion.div>
+                <motion.div
+                  className="s-actions"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.6 }}
+                  viewport={{ once: true }}
+                >
+                  <button className="s-btn-primary">VIEW PROJECTS</button>
+                </motion.div>
 
+              </div>
+
+              <div className="s-hero-right">
+                <motion.div
+                  className="s-viewfinder"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.8, delay: 0.5 }}
+                  viewport={{ once: true }}
+                >
+                  <div className="vf-corner top-left"></div>
+                  <div className="vf-corner top-right"></div>
+                  <div className="vf-corner bottom-left"></div>
+                  <div className="vf-corner bottom-right"></div>
+
+                  <div className="s-portrait-container">
+                    <img src={heroSketch} alt="Sneha Sharma" className="s-portrait-img" />
+                    <div className="s-portrait-overlay">Upload photo to render portrait</div>
                   </div>
-
-                  <div className="s-hero-right">
-                    <motion.div
-                      className="s-viewfinder"
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.8, delay: 0.5 }}
-                      viewport={{ once: true }}
-                    >
-                      <div className="vf-corner top-left"></div>
-                      <div className="vf-corner top-right"></div>
-                      <div className="vf-corner bottom-left"></div>
-                      <div className="vf-corner bottom-right"></div>
-
-                      <div className="s-portrait-container">
-                        <img src={heroSketch} alt="Sneha Sharma" className="s-portrait-img" />
-                        <div className="s-portrait-overlay">Upload photo to render portrait</div>
-                      </div>
-                      <div className="s-viewfinder-label">
-                        <span className="s-dot-small"></span> SNEHA · AI/ML ENGINEER
-                      </div>
-                    </motion.div>
+                  <div className="s-viewfinder-label">
+                    <span className="s-dot-small"></span> SNEHA · CS ENGINEER
                   </div>
-                </div>
-
-                <div className="s-hero-footer">
-                  <div className="s-footer-left">~ GWALIOR, INDIA</div>
-                  <div className="s-footer-center">
-                    <motion.div
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: scrolled ? 0 : 1 }}
-                      transition={{ delay: scrolled ? 0 : 2, duration: scrolled ? 0.3 : 1 }}
-                      style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer', color: '#b176ff' }}
-                      onClick={() => document.getElementById('about').scrollIntoView({ behavior: 'smooth' })}
-                    >
-                      <span style={{ fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.1em' }}>SCROLL DOWN</span>
-                      <motion.svg
-                        animate={{ y: [0, 4, 0] }}
-                        transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-                        width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-                      >
-                        <line x1="12" y1="5" x2="12" y2="19"></line>
-                        <polyline points="19 12 12 19 5 12"></polyline>
-                      </motion.svg>
-                    </motion.div>
-                  </div>
-                  <div className="s-footer-right">
-                  </div>
-                </div>
-              </section>
-
-              <section id="about" className="portfolio-section" style={{ position: 'relative', overflow: 'hidden' }}>
-                <FallingTechBackground />
-                <div className="split-layout" style={{ width: '100%', maxWidth: '1200px', margin: '0 auto', padding: '2rem', position: 'relative', zIndex: 10 }}>
-
-                  {/* Left Column: Image */}
-                  <motion.div
-                    className="left-column"
-                    initial={{ opacity: 0, x: -50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8 }}
-                    style={{ perspective: 1000 }}
-                  >
-                    <h3
-                      className="section-title"
-                      style={{
-                        alignSelf: 'center',
-                        marginBottom: '1.5rem',
-                        letterSpacing: '0.1em',
-                        textAlign: 'center'
-                      }}
-                    >
-                      ABOUT ME
-                    </h3>
-                    <motion.div
-                      className="image-wrapper"
-                      onMouseMove={handleMouseMove}
-                      onMouseLeave={handleMouseLeave}
-                      whileHover={{ y: -10, scale: 1.02 }}
-                      style={{
-                        rotateX,
-                        rotateY,
-                        transformStyle: "preserve-3d"
-                      }}
-                    >
-                      <div className="image-inner">
-                        {/* Blurred Background */}
-                        <img src={heroImg} alt="Sneha Blurred" className="hero-image" style={{ filter: 'blur(10px) brightness(0.8)' }} />
-
-                        {/* Sharp Foreground revealed by scan */}
-                        <motion.img
-                          src={heroImg}
-                          alt="Sneha Sharp"
-                          className="hero-image"
-                          style={{ position: 'absolute', top: 0, left: 0 }}
-                          initial={{ clipPath: "inset(0% 0% 100% 0%)" }}
-                          whileInView={{ clipPath: "inset(0% 0% 0% 0%)" }}
-                          viewport={{ once: true, amount: 0.5 }}
-                          transition={{ duration: 2.5, delay: 0.5, ease: "easeInOut" }}
-                        />
-
-                        {/* Scan Line */}
-                        <motion.div
-                          className="scan-line"
-                          initial={{ top: "0%", opacity: 0 }}
-                          whileInView={{ top: "100%", opacity: [0, 1, 1, 0] }}
-                          viewport={{ once: true, amount: 0.5 }}
-                          transition={{ duration: 2.5, delay: 0.5, ease: "easeInOut" }}
-                        />
-
-                        {/* Cyber Corners */}
-                        <div className="cyber-corners">
-                          <div className="corner top-left"></div>
-                          <div className="corner top-right"></div>
-                          <div className="corner bottom-right"></div>
-                          <div className="corner bottom-left"></div>
-                        </div>
-                      </div>
-                    </motion.div>
-                  </motion.div>
-
-                  {/* Right Column: Content */}
-                  <motion.div
-                    className="right-column"
-                    initial={{ opacity: 0, x: 50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                  >
-                    <p className="greeting">Good evening —</p>
-                    <h1 className="name-title hollow-text">Sneha</h1>
-                    <h2 className="role-title">Full Stack Developer</h2>
-
-                    <div className="description">
-                      <p>
-                        I love building stuff that actually works. Problem solving is my thing —
-                        give me a pain point and I'll ship a clean, functional solution for it. Not
-                        here to write code that just "runs." I build things that reduce friction, cut
-                        the noise, and make life easier for the people using them.
-                      </p>
-                      <p className="italic-quote">
-                        Clean code. Functional apps. Less pain points. That's the whole vibe.
-                      </p>
-                    </div>
-
-                    <div className="actions">
-                      <a href="#" className="resume-btn">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                          <polyline points="7 10 12 15 17 10"></polyline>
-                          <line x1="12" y1="15" x2="12" y2="3"></line>
-                        </svg>
-                        RESUME
-                      </a>
-
-
-                    </div>
-                  </motion.div>
-                </div>
-              </section>
-
-              {/* Skills Section (3D Tech Starfield) */}
-              <section id="skills" className="portfolio-section skills-section">
-                <div className="skills-header">
-                  <h2 className="section-title skills-title">MY TOOLKIT</h2>
-                  <p className="skills-subtitle">The cosmic armory I use to forge digital experiences and launch stellar projects.</p>
-                </div>
-                <TechMarquee />
-              </section>
-
-              {/* Projects Section */}
-              <section id="projects" className="portfolio-section projects-section">
-                <TopProjects />
-                <OtherProjects />
-              </section>
-
-              {/* Journey Section */}
-              <section id="journey" className="portfolio-section journey-section">
-                {scrollContainer && <Journey scrollContainer={scrollContainer} />}
-              </section>
-
-              {/* Achievements Section */}
-              <section id="achievements" className="portfolio-section achievements-section">
-                <Achievements />
-              </section>
-
-              {/* GitHub Intelligence Section */}
-              <section id="github" className="portfolio-section github-section">
-                <GithubStats />
-              </section>
-
-              {/* Photo Gallery Section */}
-              <section id="gallery" className="portfolio-section gallery-section">
-                <PhotoGallery />
-              </section>
-
-              {/* Contact Section */}
-              <section id="contact" className="portfolio-section contact-section">
-                <Contact />
-              </section>
-
-              {/* Footer */}
-              <footer className="portfolio-footer">
-                <p>© 2026 Sneha</p>
-              </footer>
-
+                </motion.div>
+              </div>
             </div>
+
+            <div className="s-hero-footer">
+              <div className="s-footer-left">~ GWALIOR, INDIA</div>
+              <div className="s-footer-center">
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: scrolled ? 0 : 1 }}
+                  transition={{ delay: scrolled ? 0 : 2, duration: scrolled ? 0.3 : 1 }}
+                  style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer', color: '#b176ff' }}
+                  onClick={() => document.getElementById('about').scrollIntoView({ behavior: 'smooth' })}
+                >
+                  <span style={{ fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.1em' }}>SCROLL DOWN</span>
+                  <motion.svg
+                    animate={{ y: [0, 4, 0] }}
+                    transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+                    width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+                  >
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <polyline points="19 12 12 19 5 12"></polyline>
+                  </motion.svg>
+                </motion.div>
+              </div>
+              <div className="s-footer-right">
+              </div>
+            </div>
+          </section>
+
+          <section id="about" className="portfolio-section" style={{ position: 'relative', overflow: 'hidden' }}>
+            <FallingTechBackground />
+            <div className="split-layout" style={{ width: '100%', maxWidth: '1200px', margin: '0 auto', padding: '2rem', position: 'relative', zIndex: 10 }}>
+
+              {/* Left Column: Image */}
+              <motion.div
+                className="left-column"
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                style={{ perspective: 1000 }}
+              >
+                <h3
+                  className="section-title"
+                  style={{
+                    alignSelf: 'center',
+                    marginBottom: '1.5rem',
+                    letterSpacing: '0.1em',
+                    textAlign: 'center'
+                  }}
+                >
+                  ABOUT ME
+                </h3>
+                <motion.div
+                  className="image-wrapper"
+                  onMouseMove={handleMouseMove}
+                  onMouseLeave={handleMouseLeave}
+                  whileHover={{ y: -10, scale: 1.02 }}
+                  style={{
+                    rotateX,
+                    rotateY,
+                    transformStyle: "preserve-3d"
+                  }}
+                >
+                  <div className="image-inner">
+                    {/* Blurred Background */}
+                    <img src={heroImg} alt="Sneha Blurred" className="hero-image" style={{ filter: 'blur(10px) brightness(0.8)' }} />
+
+                    {/* Sharp Foreground revealed by scan */}
+                    <motion.img
+                      src={heroImg}
+                      alt="Sneha Sharp"
+                      className="hero-image"
+                      style={{ position: 'absolute', top: 0, left: 0 }}
+                      initial={{ clipPath: "inset(0% 0% 100% 0%)" }}
+                      whileInView={{ clipPath: "inset(0% 0% 0% 0%)" }}
+                      viewport={{ once: true, amount: 0.5 }}
+                      transition={{ duration: 2.5, delay: 0.5, ease: "easeInOut" }}
+                    />
+
+                    {/* Scan Line */}
+                    <motion.div
+                      className="scan-line"
+                      initial={{ top: "0%", opacity: 0 }}
+                      whileInView={{ top: "100%", opacity: [0, 1, 1, 0] }}
+                      viewport={{ once: true, amount: 0.5 }}
+                      transition={{ duration: 2.5, delay: 0.5, ease: "easeInOut" }}
+                    />
+
+                    {/* Cyber Corners */}
+                    <div className="cyber-corners">
+                      <div className="corner top-left"></div>
+                      <div className="corner top-right"></div>
+                      <div className="corner bottom-right"></div>
+                      <div className="corner bottom-left"></div>
+                    </div>
+                  </div>
+                </motion.div>
+              </motion.div>
+
+              {/* Right Column: Content */}
+              <motion.div
+                className="right-column"
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
+                <p className="greeting">Good evening —</p>
+                <h1 className="name-title hollow-text">Sneha</h1>
+                <h2 className="role-title">Full Stack Developer</h2>
+
+                <div className="description">
+                  <p>
+                    I love building stuff that actually works. Problem solving is my thing —
+                    give me a pain point and I'll ship a clean, functional solution for it. Not
+                    here to write code that just "runs." I build things that reduce friction, cut
+                    the noise, and make life easier for the people using them.
+                  </p>
+                  <p className="italic-quote">
+                    Clean code. Functional apps. Less pain points. That's the whole vibe.
+                  </p>
+                </div>
+
+                <div className="actions">
+                  <a href="#" className="resume-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                      <polyline points="7 10 12 15 17 10"></polyline>
+                      <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    RESUME
+                  </a>
+
+
+                </div>
+              </motion.div>
+            </div>
+          </section>
+
+          {/* Skills Section (3D Tech Starfield) */}
+          <section id="skills" className="portfolio-section skills-section">
+            <div className="skills-header">
+              <h2 className="section-title skills-title">MY TOOLKIT</h2>
+              <p className="skills-subtitle">The cosmic armory I use to forge digital experiences and launch stellar projects.</p>
+            </div>
+            <TechMarquee />
+          </section>
+
+          {/* Projects Section */}
+          <section id="projects" className="portfolio-section projects-section">
+            <TopProjects />
+            <OtherProjects />
+          </section>
+
+          {/* Journey Section */}
+          <section id="journey" className="portfolio-section journey-section">
+            {scrollContainer && <Journey scrollContainer={scrollContainer} />}
+          </section>
+
+          {/* Achievements Section */}
+          <section id="achievements" className="portfolio-section achievements-section">
+            <Achievements />
+          </section>
+
+          {/* GitHub Intelligence Section */}
+          <section id="github" className="portfolio-section github-section">
+            <GithubStats />
+          </section>
+
+          {/* Photo Gallery Section */}
+          <section id="gallery" className="portfolio-section gallery-section">
+            <PhotoGallery />
+          </section>
+
+          {/* Contact Section */}
+          <section id="contact" className="portfolio-section contact-section">
+            <Contact />
+          </section>
+
+          {/* Footer */}
+          <footer className="portfolio-footer">
+            <p>© 2026 Sneha</p>
+          </footer>
+
+        </div>
         <AnimatePresence>
           {activeSection !== 'home' && <MacDock />}
         </AnimatePresence>
