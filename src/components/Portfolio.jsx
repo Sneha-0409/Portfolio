@@ -143,7 +143,7 @@ export default function Portfolio() {
                   transition={{ duration: 0.8, delay: 0.4 }}
                   viewport={{ once: true }}
                 >
-                  Hi I'm <strong style={{ color: '#fff' }}>Sneha</strong> - a Computer Science engineer passionate about <strong style={{ color: '#fff' }}>programming</strong> and <strong style={{ color: '#fff' }}>AI/ML</strong>. I build intelligent, scalable products that solve real-world problems.
+                  Hi I'm <strong style={{ color: '#fff' }}>Sneha</strong> - a Computer Science Student passionate about <strong style={{ color: '#fff' }}>programming</strong> and <strong style={{ color: '#fff' }}>AI/ML</strong>. I build intelligent, scalable Solutions that solve real-world problems.
                 </motion.p>
 
                 <motion.div
@@ -166,14 +166,17 @@ export default function Portfolio() {
                   transition={{ duration: 0.8, delay: 0.5 }}
                   viewport={{ once: true }}
                 >
-                  <div className="vf-corner top-left"></div>
-                  <div className="vf-corner top-right"></div>
-                  <div className="vf-corner bottom-left"></div>
-                  <div className="vf-corner bottom-right"></div>
-
                   <div className="s-portrait-container">
-                    <img src={heroSketch} alt="Sneha Sharma" className="s-portrait-img" />
-                    <div className="s-portrait-overlay">Upload photo to render portrait</div>
+                    <lottie-player
+                      src="https://assets3.lottiefiles.com/packages/lf20_w51pcehl.json"
+                      background="transparent"
+                      speed="1"
+                      className="s-portrait-img"
+                      style={{ objectFit: 'contain' }}
+                      loop
+                      autoplay
+                    ></lottie-player>
+                    <div className="s-portrait-overlay">System Online // Compiling Code...</div>
                   </div>
                   <div className="s-viewfinder-label">
                     <span className="s-dot-small"></span> SNEHA · CS ENGINEER
@@ -224,7 +227,7 @@ export default function Portfolio() {
                   className="section-title"
                   style={{
                     alignSelf: 'center',
-                    marginBottom: '1.5rem',
+                    marginBottom: '-5rem',
                     letterSpacing: '0.1em',
                     textAlign: 'center'
                   }}
@@ -285,20 +288,31 @@ export default function Portfolio() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                <p className="greeting">Good evening —</p>
                 <h1 className="name-title hollow-text">Sneha</h1>
                 <h2 className="role-title">Full Stack Developer</h2>
 
                 <div className="description">
                   <p>
-                    I love building stuff that actually works. Problem solving is my thing —
-                    give me a pain point and I'll ship a clean, functional solution for it. Not
-                    here to write code that just "runs." I build things that reduce friction, cut
-                    the noise, and make life easier for the people using them.
+                    I'm a 3rd year undergraduate Computer Science student at MITS-DU, Gwalior, with a strong interest in AI/ML, Data Science, Full Stack Development and Software Engineering. I primarily code in C++ and enjoy developing Intelligent solutions that solve real-world challenges. I'm an active open-source contributor (NSoC '26 & GSSoC '26), a 3× hackathon finalist, and someone who believes there's always something new to learn. I also serve as the Secretary of IEEE RAS SBC MITS-DU and a Core Member of Google Developers Group on Campus MITS-DU, helping organize and grow the campus tech community.
                   </p>
                   <p className="italic-quote">
-                    Clean code. Functional apps. Less pain points. That's the whole vibe.
+                    Something I believe: Tomorrow doesn't need to be perfect. It just needs to be tomorrow.
                   </p>
+                </div>
+
+                <div className="education-cards">
+                  <div className="education-card">
+                    <h3 className="ed-title">BTech Computer Science</h3>
+                    <p className="ed-degree">MITS-DU, Gwalior</p>
+                    <span className="ed-year">2024 - 2028</span>
+                  </div>
+                  <div className="education-card">
+                    <h3 className="ed-title">Delhi Public School Vindhyanagar</h3>
+                    <div className="ed-scores">
+                      <span className="ed-score">10th - 92.4%</span>
+                      <span className="ed-score">12th - 80.2%</span>
+                    </div>
+                  </div>
                 </div>
 
                 <div className="actions">
@@ -308,7 +322,7 @@ export default function Portfolio() {
                       <polyline points="7 10 12 15 17 10"></polyline>
                       <line x1="12" y1="15" x2="12" y2="3"></line>
                     </svg>
-                    RESUME
+                    Download CV
                   </a>
 
 
@@ -320,8 +334,10 @@ export default function Portfolio() {
           {/* Skills Section (3D Tech Starfield) */}
           <section id="skills" className="portfolio-section skills-section">
             <div className="skills-header">
-              <h2 className="section-title skills-title">MY TOOLKIT</h2>
-              <p className="skills-subtitle">The cosmic armory I use to forge digital experiences and launch stellar projects.</p>
+              <h2 className="journey-title">
+                <span className="text-white">MY</span> <span className="text-gradient">TOOLKIT</span>
+              </h2>
+              <p className="skills-subtitle">The tools behind every idea, experiment, and product I build.</p>
             </div>
             <TechMarquee />
           </section>
@@ -359,7 +375,15 @@ export default function Portfolio() {
 
           {/* Footer */}
           <footer className="portfolio-footer">
-            <p>© 2026 Sneha</p>
+            <div className="portfolio-footer-content">
+              <div className="footer-left">
+                <h2 className="footer-logo">Sneha</h2>
+                <p className="footer-bio">
+                  I am a CS student at MITS-DU Gwalior, passionate about AI/ML and programming.
+                </p>
+              </div>
+            </div>
+            <p className="footer-copyright">© {new Date().getFullYear()} All Rights Reserved.</p>
           </footer>
 
         </div>

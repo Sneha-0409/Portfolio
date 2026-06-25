@@ -40,19 +40,13 @@ const projectsData = [
   },
   {
     id: 3,
-    title: 'Aurora AI Interface',
-    status: 'Beta',
+    title: 'Development of Department Report and Analytics System',
     image: imgAi,
-    shellCommands: [
-      'sneha@dev:~$ cd Aurora-AI',
-      'sneha@dev:~/Aurora-AI$ python3 train_model.py',
-      '[✔] Neural weights synced!'
-    ],
-    feature: '✨ Node-based generative AI workspace',
-    description: 'A powerful AI image generation interface allowing users to craft stunning visuals through an intuitive nodal workflow.',
-    techStack: ['Python', 'TensorFlow', 'React'],
-    demoLink: '#',
-    githubLink: '#'
+    feature: '✨ Centralized institutional reporting system',
+    description: 'A centralized web-based portal that enables all departments to create, submit, and track annual reports in a standardized format. It integrates smart analytics, multi-year archives, and performance dashboards, reducing manual work and enabling data driven insights for institutional growth.',
+    techStack: ['HTML', 'CSS', 'JavaScript', 'React', 'Chart.js', 'Node.js', 'Firebase'],
+    demoLink: 'https://instireport.web.app/',
+    githubLink: 'https://github.com/Sneha-0409/Development-of-Departmental-Report-and-Analytics-system'
   }
 ];
 
@@ -72,8 +66,8 @@ export default function TopProjects() {
         </h2>
         <div className="pagination-dots">
           {projectsData.map((_, idx) => (
-            <div 
-              key={idx} 
+            <div
+              key={idx}
               className={`dot ${idx === activeIndex ? 'active' : ''}`}
               onClick={() => setActiveIndex(idx)}
             />
@@ -125,8 +119,8 @@ export default function TopProjects() {
               className="project-details-inner"
             >
               <h3 className="project-card-title">
-                <span className="laptop-icon">💻</span> {activeProject.title} 
-                <span className="project-status">[ {activeProject.status} ]</span>
+                <span className="laptop-icon">💻</span> {activeProject.title}
+                {activeProject.status && <span className="project-status">[ {activeProject.status} ]</span>}
               </h3>
 
               <p className="project-description">

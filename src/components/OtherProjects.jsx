@@ -50,7 +50,9 @@ export default function OtherProjects() {
   return (
     <div className="other-projects-container">
       <div className="other-projects-header" style={{ marginBottom: '3rem', textAlign: 'center' }}>
-        <h2 className="cursive-heading">More <span style={{ color: 'white' }}>Projects...</span></h2>
+        <h2 className="journey-title">
+          <span className="text-white">MORE</span> <span className="text-gradient">PROJECTS...</span>
+        </h2>
       </div>
 
       <div className="other-projects-grid">

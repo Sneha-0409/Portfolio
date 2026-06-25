@@ -77,9 +77,9 @@ export default function Achievements() {
   return (
     <div className="achievements-container">
       <div className="achievements-header" style={{ textAlign: 'center' }}>
-        <h2 className="section-title" style={{ marginBottom: '0.5rem' }}>
-          <span style={{ color: '#c2b5f5' }}>ACHIEVEMENTS & </span>
-          <span style={{ color: '#ffffff' }}>CERTIFICATIONS</span>
+        <h2 className="journey-title" style={{ marginBottom: '0.5rem' }}>
+          <span className="text-gradient">ACHIEVEMENTS & </span>
+          <span className="text-white">CERTIFICATIONS</span>
         </h2>
         <p style={{ color: '#a09d9c', fontSize: '1.1rem', maxWidth: '600px', margin: '0 auto' }}>
           Milestones, recognitions, and professional certifications I've earned along my journey.

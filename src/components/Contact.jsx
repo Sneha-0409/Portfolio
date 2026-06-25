@@ -26,7 +26,9 @@ export default function Contact() {
           transition={{ duration: 0.5, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          <h3 style={{ color: '#c2b5f5', marginBottom: '1rem', fontSize: '1.5rem', marginTop: 0 }}>Let's Connect</h3>
+          <h3 className="journey-title" style={{ marginBottom: '1rem', fontSize: '2.5rem', marginTop: 0, textTransform: 'none', letterSpacing: 'normal' }}>
+            <span className="text-gradient">Let's Connect</span>
+          </h3>
           <p className="contact-desc" style={{ marginBottom: '1.5rem' }}>
             I'm always open to new opportunities, collaborations, or just a chat. Drop a message below!
           </p>

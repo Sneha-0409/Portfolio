@@ -4,7 +4,7 @@ import { GitHubCalendar } from 'react-github-calendar';
 
 export default function GithubStats() {
   const username = 'Sneha-0409';
-  const theme = 'tokyonight'; 
+  const theme = 'tokyonight';
   const hideBorder = true;
   const bgColor = '14141d'; // matching the space theme
   const titleColor = 'c2b5f5';
@@ -20,14 +20,15 @@ export default function GithubStats() {
 
   return (
     <div className="github-section-container">
-      <div className="github-header">
-        <div className="github-header-line"></div>
-        <h2 className="github-title">GITHUB INTELLIGENCE</h2>
-        <div className="github-header-line"></div>
+      <div className="github-header" style={{ textAlign: 'center', marginBottom: '2rem' }}>
+        <h2 className="journey-title">
+          <span className="text-gradient">GITHUB </span>
+          <span className="text-white">STATS</span>
+        </h2>
       </div>
 
       <div className="github-grid">
-        <motion.div 
+        <motion.div
           className="github-card"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -37,7 +38,7 @@ export default function GithubStats() {
           <img src={statsUrl} alt={`${username}'s GitHub Stats`} />
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className="github-card"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -47,7 +48,7 @@ export default function GithubStats() {
           <img src={streakUrl} alt={`${username}'s GitHub Streak`} />
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className="github-card"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -58,7 +59,7 @@ export default function GithubStats() {
         </motion.div>
       </div>
 
-      <motion.div 
+      <motion.div
         className="github-card github-activity-card"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -68,7 +69,7 @@ export default function GithubStats() {
         <img src={activityGraphUrl} alt={`${username}'s Contribution Graph`} />
       </motion.div>
 
-      <motion.div 
+      <motion.div
         className="github-card github-calendar-card"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -76,8 +77,8 @@ export default function GithubStats() {
         viewport={{ once: true }}
         style={{ marginTop: '1.5rem', padding: '2rem' }}
       >
-        <GitHubCalendar 
-          username={username} 
+        <GitHubCalendar
+          username={username}
           colorScheme="dark"
           theme={{
             dark: ['rgba(255, 255, 255, 0.05)', '#0e4429', '#006d32', '#26a641', '#39d353']

@@ -86,7 +86,9 @@ export default function PhotoGallery() {
     <div className="gallery-section-container">
       <div className="github-header">
         <div className="github-header-line"></div>
-        <h2 className="github-title" style={{ color: '#c2b5f5' }}>SCRAPBOOK</h2>
+        <h2 className="journey-title" style={{ textAlign: 'center', marginBottom: '2rem' }}>
+          <span className="text-gradient">SCRAPBOOK</span>
+        </h2>
         <div className="github-header-line"></div>
       </div>
 
