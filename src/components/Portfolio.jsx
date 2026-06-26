@@ -29,7 +29,7 @@ export default function Portfolio() {
   useEffect(() => {
     let timer;
     const currentRole = roles[loopNum % roles.length];
-    
+
     if (isDeleting) {
       timer = setTimeout(() => {
         setText(currentRole.substring(0, text.length - 1));
@@ -37,17 +37,17 @@ export default function Portfolio() {
           setIsDeleting(false);
           setLoopNum(loopNum + 1);
         }
-      }, 50); // Deleting speed
+      }, 50);
     } else {
       if (text === currentRole) {
-        timer = setTimeout(() => setIsDeleting(true), 2000); // Pause when word is complete
+        timer = setTimeout(() => setIsDeleting(true), 2000);
       } else {
         timer = setTimeout(() => {
           setText(currentRole.substring(0, text.length + 1));
-        }, 100); // Typing speed
+        }, 100);
       }
     }
-    
+
     return () => clearTimeout(timer);
   }, [text, isDeleting, loopNum]);
 
@@ -68,7 +68,7 @@ export default function Portfolio() {
       }
     );
 
-    const sections = document.querySelectorAll('.portfolio-section, .s-sharma-section');
+    const sections = document.querySelectorAll('.portfolio-section, .hero-section');
     sections.forEach((section) => observer.observe(section));
 
     return () => {
@@ -145,7 +145,7 @@ export default function Portfolio() {
             <a href="#achievements" className={`nav-link ${activeSection === 'achievements' ? 'active' : ''}`}>Achievements</a>
           </motion.nav>
 
-          <section id="home" className="s-sharma-section">
+          <section id="home" className="hero-section">
 
             <div className="s-hero-grid">
               <div className="s-hero-left">
@@ -254,7 +254,6 @@ export default function Portfolio() {
             <ParticlesNetwork />
             <div className="split-layout" style={{ width: '100%', maxWidth: '1200px', margin: '0 auto', padding: '2rem', position: 'relative', zIndex: 10 }}>
 
-              {/* Left Column: Image */}
               <motion.div
                 className="left-column"
                 initial={{ opacity: 0, x: -50 }}
@@ -285,10 +284,8 @@ export default function Portfolio() {
                   }}
                 >
                   <div className="image-inner">
-                    {/* Blurred Background */}
                     <img src={heroImg} alt="Sneha Blurred" className="hero-image" style={{ filter: 'blur(10px) brightness(0.8)' }} />
 
-                    {/* Sharp Foreground revealed by scan */}
                     <motion.img
                       src={heroImg}
                       alt="Sneha Sharp"
@@ -300,7 +297,6 @@ export default function Portfolio() {
                       transition={{ duration: 2.5, delay: 0.5, ease: "easeInOut" }}
                     />
 
-                    {/* Scan Line */}
                     <motion.div
                       className="scan-line"
                       initial={{ top: "0%", opacity: 0 }}
@@ -309,7 +305,6 @@ export default function Portfolio() {
                       transition={{ duration: 2.5, delay: 0.5, ease: "easeInOut" }}
                     />
 
-                    {/* Cyber Corners */}
                     <div className="cyber-corners">
                       <div className="corner top-left"></div>
                       <div className="corner top-right"></div>
@@ -320,7 +315,6 @@ export default function Portfolio() {
                 </motion.div>
               </motion.div>
 
-              {/* Right Column: Content */}
               <motion.div
                 className="right-column"
                 initial={{ opacity: 0, x: 50 }}
@@ -392,7 +386,7 @@ export default function Portfolio() {
             </div>
           </section>
 
-          {/* Skills Section (3D Tech Starfield) */}
+          {/* Skills Section */}
           <section id="skills" className="portfolio-section skills-section">
             <div className="skills-header">
               <h2 className="journey-title">
@@ -419,7 +413,7 @@ export default function Portfolio() {
             <Achievements />
           </section>
 
-          {/* GitHub Intelligence Section */}
+          {/* GitHub Section */}
           <section id="github" className="portfolio-section github-section">
             <GithubStats />
           </section>

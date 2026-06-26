@@ -6,23 +6,23 @@ const ParticlesNetwork = () => {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    
+
     const ctx = canvas.getContext('2d');
     let animationFrameId;
 
     let particlesArray = [];
-    const colors = ['#a777e3', '#77c8e3']; // Purple and Cyan
+    const colors = ['#a777e3', '#77c8e3'];
     let w = canvas.width = canvas.parentElement.offsetWidth;
     let h = canvas.height = canvas.parentElement.offsetHeight;
 
     const handleResize = () => {
       if (canvas.parentElement) {
-         w = canvas.width = canvas.parentElement.offsetWidth;
-         h = canvas.height = canvas.parentElement.offsetHeight;
-         init();
+        w = canvas.width = canvas.parentElement.offsetWidth;
+        h = canvas.height = canvas.parentElement.offsetHeight;
+        init();
       }
     };
-    
+
     window.addEventListener('resize', handleResize);
 
     class Particle {
@@ -39,8 +39,7 @@ const ParticlesNetwork = () => {
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
         ctx.fillStyle = this.color;
         ctx.fill();
-        
-        // Add subtle glow
+
         ctx.shadowBlur = 10;
         ctx.shadowColor = this.color;
       }
@@ -55,7 +54,7 @@ const ParticlesNetwork = () => {
 
     function init() {
       particlesArray = [];
-      let numberOfParticles = Math.min((w * h) / 100000, 8); // limit max particles
+      let numberOfParticles = Math.min((w * h) / 100000, 8);
       for (let i = 0; i < numberOfParticles; i++) {
         let size = (Math.random() * 2) + 1.5;
         let x = (Math.random() * ((w - size * 2) - (size * 2)) + size * 2);
@@ -70,18 +69,17 @@ const ParticlesNetwork = () => {
     function connect() {
       for (let a = 0; a < particlesArray.length; a++) {
         for (let b = a; b < particlesArray.length; b++) {
-          let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x)) + 
-                         ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
+          let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x)) +
+            ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
           if (distance < 10000) {
             let opacity = 1 - (distance / 10000);
-            // Line inherits color mixed between particles (approximated here by mostly purple with low opacity)
             ctx.strokeStyle = `rgba(167, 119, 227, ${opacity * 0.4})`;
             ctx.lineWidth = 1;
             ctx.beginPath();
             ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
             ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
             ctx.stroke();
-            ctx.shadowBlur = 0; // reset shadow for lines
+            ctx.shadowBlur = 0;
           }
         }
       }
@@ -106,8 +104,8 @@ const ParticlesNetwork = () => {
   }, []);
 
   return (
-    <canvas 
-      ref={canvasRef} 
+    <canvas
+      ref={canvasRef}
       style={{
         position: 'absolute',
         top: 0,

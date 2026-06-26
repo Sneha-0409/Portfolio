@@ -101,25 +101,22 @@ export default function PhotoGallery() {
           animate={{ x: isOpen ? "0%" : "-25%" }}
           transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
         >
-          {/* Empty Left Half for layout spacing */}
           <div className="scrapbook-page empty-left-half"></div>
 
-          {/* Book Spine (Binding) */}
           <div className="scrapbook-spine">
             {[...Array(16)].map((_, i) => (
               <div key={i} className="ring" style={{ top: `${(i * 6) + 4}%` }}></div>
             ))}
           </div>
 
-          {/* Right Page (Base) */}
           <div className="scrapbook-page right-page">
             <div className="polaroid-gallery-grid">
               {rightPageItems.map((item, index) => (
-                  <motion.div
-                    key={item.id}
-                    className="polaroid-card"
-                    style={{ '--random': (item.id % 5) * 0.25 }}
-                    initial={{ opacity: 0, scale: 0.9, y: item.yOffset + 50, rotate: item.rotate - 10 }}
+                <motion.div
+                  key={item.id}
+                  className="polaroid-card"
+                  style={{ '--random': (item.id % 5) * 0.25 }}
+                  initial={{ opacity: 0, scale: 0.9, y: item.yOffset + 50, rotate: item.rotate - 10 }}
                   whileInView={{ opacity: 1, scale: 1, y: item.yOffset, rotate: item.rotate }}
                   whileHover={{ scale: 1.05, rotate: 0, zIndex: 10 }}
                   transition={{ duration: 0.5, delay: (index + 4) * 0.1 }}
@@ -133,7 +130,6 @@ export default function PhotoGallery() {
                 </motion.div>
               ))}
             </div>
-            {/* Scrapbook Doodles */}
             <div className="scrapbook-doodle" style={{ top: '1%', right: '4%', transform: 'rotate(8deg)' }}>
               Memories... ❤️
             </div>
@@ -142,7 +138,6 @@ export default function PhotoGallery() {
             </div>
           </div>
 
-          {/* 3D Flipper Cover */}
           <motion.div
             className={`scrapbook-flipper ${isOpen ? 'open' : ''}`}
             onClick={() => setIsOpen(!isOpen)}
@@ -209,7 +204,6 @@ export default function PhotoGallery() {
               </motion.div>
             </div>
 
-            {/* Back of Cover (Left Page) */}
             <div className="scrapbook-cover-back scrapbook-page left-page">
               <div className="polaroid-gallery-grid">
                 {leftPageItems.map((item, index) => (

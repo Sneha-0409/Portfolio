@@ -44,7 +44,7 @@ const journeyData = [
 const TimelineItem = ({ item, index, isLast, scrollContainer }) => {
   const isLeft = index % 2 === 0;
   const itemRef = useRef(null);
-  
+
   const scrollRef = useRef(scrollContainer);
   scrollRef.current = scrollContainer;
 
@@ -59,11 +59,10 @@ const TimelineItem = ({ item, index, isLast, scrollContainer }) => {
   return (
     <div ref={itemRef} className={`timeline-item ${isLeft ? 'left' : 'right'}`}>
       <div className="timeline-dot"></div>
-      
-      {/* Line segment connecting to the next dot */}
+
       <div className="timeline-segment-bg"></div>
-      <motion.div 
-        className="timeline-segment-fill" 
+      <motion.div
+        className="timeline-segment-fill"
         style={{ height: lineHeight }}
       ></motion.div>
 
@@ -100,10 +99,10 @@ export default function Journey({ scrollContainer }) {
 
       <div className="timeline">
         {journeyData.map((item, index) => (
-          <TimelineItem 
-            key={item.id} 
-            item={item} 
-            index={index} 
+          <TimelineItem
+            key={item.id}
+            item={item}
+            index={index}
             isLast={index === journeyData.length - 1}
             scrollContainer={scrollContainer}
           />

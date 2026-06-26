@@ -18,13 +18,11 @@ export default function ProjectCarousel() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
 
-  // Safely wrap index for circular array
   const normalizeIndex = (index) => {
     const len = projects.length;
     return ((index % len) + len) % len;
   };
 
-  // Auto-play interval to swap every 3.5 seconds, pauses on hover
   useEffect(() => {
     let timeoutId;
     if (!isHovered) {
@@ -38,7 +36,6 @@ export default function ProjectCarousel() {
   const handleNext = () => setActiveIndex((prev) => normalizeIndex(prev + 1));
   const handlePrev = () => setActiveIndex((prev) => normalizeIndex(prev - 1));
 
-  // Swipe logic
   const handlePanEnd = (e, info) => {
     const swipeThreshold = 50;
     if (info.offset.x < -swipeThreshold) {
@@ -49,8 +46,8 @@ export default function ProjectCarousel() {
   };
 
   return (
-    <div 
-      className="carousel-container" 
+    <div
+      className="carousel-container"
       style={{ perspective: '1500px' }}
       onPanEnd={handlePanEnd}
     >
@@ -64,7 +61,6 @@ export default function ProjectCarousel() {
       <div className="carousel-coverflow-wrapper">
         <AnimatePresence initial={false}>
           {projects.map((proj, i) => {
-            // Calculate shortest circular distance
             let d = i - activeIndex;
             const n = projects.length;
             if (d > n / 2) d -= n;
@@ -73,8 +69,7 @@ export default function ProjectCarousel() {
             const isActive = d === 0;
             const isPrev = d === -1;
             const isNext = d === 1;
-            
-            // Coverflow math parameters
+
             let x = 0;
             let z = 0;
             let rotateY = 0;
@@ -104,7 +99,6 @@ export default function ProjectCarousel() {
               opacity = 0.6;
               zIndex = 5;
             } else if (d < -1) {
-              // Far left tucked away
               x = -500;
               z = -200;
               rotateY = 45;
@@ -112,7 +106,6 @@ export default function ProjectCarousel() {
               opacity = 0;
               zIndex = 1;
             } else if (d > 1) {
-              // Far right tucked away
               x = 500;
               z = -200;
               rotateY = -45;
@@ -129,17 +122,17 @@ export default function ProjectCarousel() {
                 animate={{ x, z, rotateY, scale, opacity, zIndex }}
                 transition={{
                   type: 'tween',
-                  ease: [0.25, 1, 0.5, 1], // Smooth cinematic easing
+                  ease: [0.25, 1, 0.5, 1],
                   duration: 0.8,
                 }}
                 style={{
                   position: 'absolute',
-                  pointerEvents: isActive ? 'auto' : 'none', // Only active card can be clicked/hovered
+                  pointerEvents: isActive ? 'auto' : 'none',
                 }}
                 onMouseEnter={() => isActive && setIsHovered(true)}
                 onMouseLeave={() => isActive && setIsHovered(false)}
               >
-                <motion.div 
+                <motion.div
                   className="project-card-inner"
                   whileHover={isActive ? { rotateX: 15, scale: 0.95 } : {}}
                   transition={{ type: 'spring', stiffness: 300, damping: 20 }}

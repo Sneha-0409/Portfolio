@@ -62,7 +62,6 @@ body {
   height: 250vmax;
   background-color: var(--galaxy-bg);
   background-image:
-    /* Nebula clouds */
     radial-gradient(circle at 15% 50%, rgba(46, 11, 84, 0.4), transparent 40%),
     radial-gradient(circle at 85% 30%, rgba(11, 26, 84, 0.4), transparent 40%),
     var(--stars-1), var(--stars-2), var(--stars-3);
@@ -124,7 +123,7 @@ body {
   pointer-events: auto;
 }
 
-/* Projects Section & 3D Carousel */
+/* Projects Section */
 .projects-section {
   display: flex;
   flex-direction: column;
@@ -143,7 +142,6 @@ body {
   z-index: 0;
   pointer-events: none;
   background-color: transparent;
-  /* Let the black fluid canvas show through for the cursor */
   background-image: radial-gradient(circle at 50% 50%, rgba(138, 43, 226, 0.15), transparent 70%);
   overflow: hidden;
 }
@@ -179,7 +177,6 @@ body {
 
 .projects-section .section-title {
   color: #d1b3ff;
-  /* Lavender text */
 }
 
 .carousel-container {
@@ -206,7 +203,6 @@ body {
   align-items: center;
   cursor: pointer;
   z-index: 20;
-  /* above the drag overlay */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   transition: all 0.3s ease;
@@ -235,7 +231,6 @@ body {
 }
 
 .project-card {
-  /* position: absolute handled inline */
   top: auto;
   left: auto;
   width: 450px;
@@ -248,7 +243,6 @@ body {
   border-radius: 20px;
   background: rgba(20, 20, 30, 0.6);
   border: 4px solid #C0C0C0;
-  /* Thick Silver border */
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -259,12 +253,10 @@ body {
   cursor: pointer;
 }
 
-/* Cyberpunk Hover Overlay */
 .cyber-overlay {
   position: absolute;
   inset: 0;
   background-color: rgba(0, 15, 35, 0.85);
-  /* Darkened significantly for text contrast */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -374,7 +366,6 @@ body {
   border-right-width: 4px;
 }
 
-/* Cyber Info Terminal */
 .default-info {
   display: flex;
   flex-direction: column;
@@ -488,7 +479,6 @@ body {
   content: "";
   position: absolute;
   top: -0.5rem;
-  /* Matches container padding */
   left: 50%;
   transform: translateX(-50%);
   width: 24px;
@@ -507,7 +497,6 @@ body {
   background: rgba(255, 255, 255, 0.25);
 }
 
-/* Main layout */
 .portfolio-main {
   flex: 1;
   min-height: 0;
@@ -515,10 +504,8 @@ body {
   flex-direction: column;
   position: relative;
   pointer-events: none;
-  /* Let cursor pass through to fluid canvas */
 }
 
-/* Background Marquee */
 .background-marquee {
   width: 100vw;
   overflow: hidden;
@@ -532,7 +519,6 @@ body {
 .marquee-content {
   display: inline-block;
   white-space: nowrap;
-  /* 30s for a smooth, slow scroll */
   animation: marquee-scroll 40s linear infinite;
 }
 
@@ -556,7 +542,6 @@ body {
   }
 }
 
-/* The wrapper for the Pill to put it above the text */
 .pill-wrapper {
   position: absolute;
   top: 50%;
@@ -564,14 +549,10 @@ body {
   transform: translate(-50%, -50%);
   z-index: 20;
   pointer-events: auto;
-  /* Re-enable pointer events for the interactive pill */
 }
 
-/* Pill specific styles */
 .loading-pill {
-  /* Removed static background colors, using ::before pseudo-element for rotation */
   background: transparent;
-  /* The lavender glow on the left side, combined with the drop shadow */
   box-shadow:
     -10px 0px 40px 5px rgba(194, 181, 245, 0.85),
     -4px 0px 15px 2px rgba(194, 181, 245, 1),
@@ -588,7 +569,6 @@ body {
 .pill-content {
   position: relative;
   width: 220px;
-  /* Big enough to fit the loading text */
   height: 30px;
   display: flex;
   align-items: center;
@@ -619,7 +599,6 @@ body {
 
 .pill-text-loading {
   width: 220px;
-  /* Match parent width to keep text stationary */
   position: absolute;
   left: 0;
   text-align: center;
@@ -643,7 +622,6 @@ body {
   z-index: 3;
 }
 
-/* Split Layout Styles (rendered inside PillLoader) */
 .split-layout {
   display: flex;
   width: 100%;
@@ -652,9 +630,7 @@ body {
   z-index: 10;
   padding: 2rem;
   color: #fff;
-  /* Ensure text is white over dark background */
   pointer-events: none;
-  /* Let mouse movements reach the WebGL canvas */
 }
 
 .left-column {
@@ -671,26 +647,21 @@ body {
   aspect-ratio: 1;
   border-radius: 24px;
   pointer-events: auto;
-  /* Enable interaction for image */
   transition: box-shadow 0.4s ease;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  /* No colored glow */
 }
 
 .image-wrapper::before {
   content: "";
   position: absolute;
   inset: 0px;
-  /* Hidden initially */
   border-radius: 24px;
-  /* Rainbow colors matching the fluid cursor */
   background: linear-gradient(120deg, #ff0055, #00ffcc, #ffaa00, #9900ff, #00ffcc, #ff0055);
   background-size: 300% 300%;
   z-index: -1;
   animation: spreadingColors 4s linear infinite;
   opacity: 0;
   filter: blur(6px);
-  /* Very tight blur so the colors mix, but NOT a massive aura */
   transition: inset 0.4s ease, opacity 0.4s ease;
 }
 
@@ -726,7 +697,6 @@ body {
   transition: transform 0.4s ease;
 }
 
-/* Scan Effect Styles */
 .scan-line {
   position: absolute;
   left: 0;
@@ -740,13 +710,11 @@ body {
 
 .image-wrapper:hover {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-  /* Deep standard shadow, no fuzzy glow */
 }
 
 .image-wrapper:hover::before {
   opacity: 1;
   inset: -6px;
-  /* Colors literally spread out from behind the image! */
 }
 
 .image-wrapper:hover .hero-image {
@@ -822,7 +790,7 @@ body {
 }
 
 .education-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-50px);
   border-color: rgba(194, 181, 245, 0.3);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   background: rgba(255, 255, 255, 0.05);
@@ -884,7 +852,6 @@ body {
   font-weight: 600;
   transition: background-color 0.3s ease;
   pointer-events: auto;
-  /* Enable interaction for button */
 }
 
 .resume-btn:hover {
@@ -906,7 +873,6 @@ body {
   display: flex;
   align-items: center;
   pointer-events: auto;
-  /* Enable interaction for icon */
 }
 
 .social-icon:hover {
@@ -934,8 +900,7 @@ body {
   }
 }
 
-/* Hero Section Redesign (S.SHARMA Style) */
-.s-sharma-section {
+.hero-section {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -948,8 +913,7 @@ body {
   z-index: 10;
 }
 
-/* Top Nav Overlay */
-.s-sharma-nav {
+.hero-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -957,19 +921,19 @@ body {
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.s-logo {
+.hero-logo {
   font-weight: 800;
   letter-spacing: 0.1em;
   font-size: 1.1rem;
 }
 
-.s-nav-links {
+.hero-nav-links {
   display: flex;
   gap: 2rem;
   align-items: center;
 }
 
-.s-nav-links a {
+.hero-nav-links a {
   text-decoration: none;
   color: #888;
   font-size: 0.8rem;
@@ -979,23 +943,22 @@ body {
   pointer-events: auto;
 }
 
-.s-nav-links a:hover {
+.hero-nav-links a:hover {
   color: #fff;
 }
 
-.s-hire-btn {
+.hero-hire-btn {
   border: 1px solid #b176ff;
   color: #b176ff !important;
   padding: 0.5rem 1.5rem;
   border-radius: 4px;
 }
 
-.s-hire-btn:hover {
+.hero-hire-btn:hover {
   background-color: rgba(177, 118, 255, 0.1);
 }
 
-/* Grid Layout */
-.s-hero-grid {
+.hero-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
@@ -1004,15 +967,14 @@ body {
   margin-top: 2rem;
 }
 
-/* Left Side */
-.s-hero-left {
+.hero-left {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 2rem;
 }
 
-.s-status-badge {
+.hero-status-badge {
   display: inline-flex;
   width: max-content;
   align-items: center;
@@ -1027,7 +989,7 @@ body {
   border: 1px solid rgba(0, 255, 204, 0.2);
 }
 
-.s-dot {
+.hero-dot {
   width: 8px;
   height: 8px;
   background-color: #45fa87;
@@ -1050,14 +1012,14 @@ body {
   }
 }
 
-.s-dot-small {
+.hero-dot-small {
   width: 6px;
   height: 6px;
   background-color: #b176ff;
   border-radius: 50%;
 }
 
-.s-main-title {
+.hero-main-title {
   font-size: 5.5rem;
   font-weight: 900;
   line-height: 1.05;
@@ -1065,20 +1027,20 @@ body {
   letter-spacing: -0.02em;
 }
 
-.s-title-solid {
+.hero-title-solid {
   color: #ffffff;
 }
 
-.s-title-purple {
+.hero-title-purple {
   color: #b176ff;
 }
 
-.s-title-outline {
+.hero-title-outline {
   color: transparent;
   -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.3);
 }
 
-.s-desc {
+.hero-desc {
   font-size: 1.1rem;
   color: #888;
   max-width: 500px;
@@ -1086,14 +1048,14 @@ body {
   margin: 0;
 }
 
-.s-actions {
+.hero-actions {
   display: flex;
   align-items: center;
   gap: 2rem;
   pointer-events: auto;
 }
 
-.s-btn-primary {
+.hero-btn-primary {
   background-color: #b176ff;
   color: #000;
   border: none;
@@ -1105,12 +1067,12 @@ body {
   transition: all 0.3s ease;
 }
 
-.s-btn-primary:hover {
+.hero-btn-primary:hover {
   background-color: #cda8ff;
   transform: translateY(-2px);
 }
 
-.s-btn-link {
+.hero-btn-link {
   color: #888;
   text-decoration: none;
   font-size: 0.8rem;
@@ -1119,18 +1081,18 @@ body {
   transition: color 0.3s ease;
 }
 
-.s-btn-link:hover {
+.hero-btn-link:hover {
   color: #fff;
 }
 
-.s-tech-tags {
+.hero-tech-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
   margin-top: 1rem;
 }
 
-.s-tech-tags span {
+.hero-tech-tags span {
   border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 0.4rem 0.8rem;
   font-size: 0.7rem;
@@ -1140,19 +1102,18 @@ body {
   transition: all 0.3s ease;
 }
 
-.s-tech-tags span:hover {
+.hero-tech-tags span:hover {
   color: #b176ff;
   border-color: rgba(177, 118, 255, 0.5);
 }
 
-/* Right Side - Viewfinder */
-.s-hero-right {
+.hero-hero-right {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.s-viewfinder {
+.hero-viewfinder {
   position: relative;
   width: 100%;
   max-width: 450px;
@@ -1198,7 +1159,7 @@ body {
   border-top: none;
 }
 
-.s-portrait-container {
+.hero-portrait-container {
   position: relative;
   width: 90%;
   height: 90%;
@@ -1207,14 +1168,14 @@ body {
   align-items: center;
 }
 
-.s-portrait-img {
+.hero-portrait-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transform: scale(1.35);
 }
 
-.s-portrait-overlay {
+.hero-portrait-overlay {
   position: absolute;
   color: rgba(177, 118, 255, 0.5);
   font-size: 0.8rem;
@@ -1222,10 +1183,9 @@ body {
   text-align: center;
   z-index: 10;
   display: none;
-  /* Hide if we have the image */
 }
 
-.s-viewfinder-label {
+.hero-viewfinder-label {
   position: absolute;
   bottom: 100px;
   left: 20px;
@@ -1243,7 +1203,7 @@ body {
 }
 
 /* Footer */
-.s-hero-footer {
+.hero-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1256,49 +1216,48 @@ body {
   letter-spacing: 0.1em;
 }
 
-.s-footer-center {
+.hero-footer-center {
   display: flex;
   gap: 2rem;
   pointer-events: auto;
 }
 
-.s-footer-center a {
+.hero-footer-center a {
   color: #444;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
-.s-footer-center a:hover {
+.hero-footer-center a:hover {
   color: #fff;
 }
 
 @media (max-width: 1024px) {
-  .s-hero-grid {
+  .hero-grid {
     grid-template-columns: 1fr;
     gap: 3rem;
   }
 
-  .s-main-title {
+  .hero-main-title {
     font-size: 4rem;
   }
 
-  .s-sharma-nav {
+  .hero-nav {
     flex-direction: column;
     gap: 1rem;
   }
 
-  .s-sharma-section {
+  .hero-section {
     padding: 2rem;
   }
 
-  .s-hero-footer {
+  .hero-footer {
     flex-direction: column;
     gap: 1rem;
     text-align: center;
   }
 }
 
-/* Scrollable Sections */
 .portfolio-section {
   min-height: 100vh;
   width: 100%;
@@ -1352,10 +1311,9 @@ body {
   color: #a0a0a0;
 }
 
-/* Skills 3D Starfield */
+/* skills section */
 .skills-section {
   background: transparent;
-  /* lets the galaxy show through completely */
   position: relative;
   overflow: hidden;
   flex-direction: column;
@@ -1397,7 +1355,6 @@ body {
   font-size: 1.1rem;
 }
 
-/* Tech Marquee Component */
 .tech-marquee-container {
   display: flex;
   flex-direction: column;
@@ -1496,7 +1453,6 @@ body {
   pointer-events: none;
 }
 
-/* Split-Screen Project Showcase */
 .project-showcase {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
@@ -1507,8 +1463,6 @@ body {
   align-items: start;
 }
 
-
-/* Left Side: Images */
 .showcase-left-sticky {
   position: relative;
   width: 100%;
@@ -1551,7 +1505,6 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Right Side: Content */
 .showcase-right {
   display: flex;
   flex-direction: column;
@@ -1646,9 +1599,7 @@ body {
   font-size: 0.8rem;
 }
 
-/* =====================================================================
-   TOP PROJECTS SECTION (LAPTOP + TERMINAL LAYOUT)
-===================================================================== */
+/* top projects section */
 .top-projects-container {
   width: 100%;
   max-width: 1200px;
@@ -1731,7 +1682,6 @@ body {
   }
 }
 
-/* --- Laptop CSS Frame --- */
 .laptop-showcase {
   display: flex;
   flex-direction: column;
@@ -1749,7 +1699,6 @@ body {
   border-radius: 16px 16px 0 0;
   position: relative;
   padding: 3%;
-  /* Bezel size */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1802,7 +1751,6 @@ body {
   border-radius: 0 0 4px 4px;
 }
 
-/* --- Center: Next Arrow --- */
 .next-project-arrow {
   background: rgba(179, 136, 255, 0.1);
   border: 1px solid rgba(179, 136, 255, 0.4);
@@ -1829,7 +1777,6 @@ body {
   width: 24px;
   height: 24px;
   transform: translateX(2px);
-  /* optically center the arrow */
 }
 
 @media (max-width: 992px) {
@@ -1843,7 +1790,6 @@ body {
   }
 }
 
-/* --- Right Side: Details Panel --- */
 .project-details-panel {
   flex: 1;
   width: 100%;
@@ -2030,9 +1976,7 @@ body {
   transform: translateY(-2px);
 }
 
-/* =====================================================================
-   OTHER PROJECTS SECTION (GRID)
-===================================================================== */
+/* other projects section */
 .cursive-heading {
   font-family: 'Caveat', 'Dancing Script', 'Pacifico', cursive;
   font-size: 3.5rem;
@@ -2122,7 +2066,6 @@ body {
   line-height: 1.4;
   margin-bottom: 1rem;
   flex: 1;
-  /* Pushes everything below to the bottom */
 }
 
 .card-tech-stack {
@@ -2142,7 +2085,6 @@ body {
   gap: 1rem;
 }
 
-/* Override action buttons to be red in Other Projects */
 .other-project-card .action-btn.primary {
   background: #ff3b3b;
   border-color: #ff3b3b;
@@ -2164,9 +2106,7 @@ body {
   border-color: rgba(255, 59, 59, 0.4);
 }
 
-/* =====================================================================
-   JOURNEY SECTION (TIMELINE)
-===================================================================== */
+/* journey section */
 .journey-container {
   width: 100%;
   max-width: 1000px;
@@ -2216,9 +2156,7 @@ body {
 .timeline-segment-bg {
   position: absolute;
   top: 16px;
-  /* align with middle of dot */
   bottom: -16px;
-  /* stretch to middle of next dot (approx) */
   left: 50%;
   width: 2px;
   transform: translateX(-50%);
@@ -2268,7 +2206,6 @@ body {
 
 .timeline-card {
   background: #14141d;
-  /* Solid dark color matching the theme */
   border: 1px solid rgba(179, 136, 255, 0.3);
   box-shadow: 0 0 15px rgba(179, 136, 255, 0.15), inset 0 0 10px rgba(179, 136, 255, 0.05);
   border-radius: 12px;
@@ -2282,7 +2219,6 @@ body {
   box-shadow: 0 0 25px rgba(179, 136, 255, 0.3), inset 0 0 15px rgba(179, 136, 255, 0.1);
 }
 
-/* Left Item Positioning */
 .timeline-item.left {
   justify-content: flex-start;
 }
@@ -2295,7 +2231,6 @@ body {
   margin-right: 3rem;
 }
 
-/* Right Item Positioning */
 .timeline-item.right {
   justify-content: flex-end;
 }
@@ -2317,7 +2252,6 @@ body {
 .timeline-connector {
   position: absolute;
   top: 15px;
-  /* aligns perfectly with middle of dot (top 10px + 12px/2) */
   width: 2rem;
   height: 1px;
   background: rgba(179, 136, 255, 0.5);
@@ -2337,7 +2271,6 @@ body {
 .timeline-item.left .timeline-year-wrapper {
   justify-content: flex-end;
   padding-right: 3rem;
-  /* 2rem connector + 1rem gap */
 }
 
 .timeline-item.right .timeline-year-wrapper {
@@ -2367,7 +2300,6 @@ body {
   justify-content: flex-start;
 }
 
-/* Specific order of icon and text */
 .timeline-item.left .timeline-card-title {
   order: 1;
 }
@@ -2519,9 +2451,7 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 24px;
   align-items: center;
-  /* Ensures icons grow from the center equally */
   width: 64px;
-  /* Base width */
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.15);
   pointer-events: auto;
 }
@@ -2530,7 +2460,6 @@ body {
   aspect-ratio: 1 / 1;
   background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 50%);
   border-radius: 22%;
-  /* classic macOS icon squircle */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -2539,7 +2468,6 @@ body {
   padding: 22%;
   cursor: pointer;
   text-decoration: none;
-  /* Disable focus outline */
   outline: none;
 }
 
@@ -2547,7 +2475,6 @@ body {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  /* simple-icons are black by default, we invert them to white */
   filter: brightness(0) invert(1);
 }
 
@@ -2570,9 +2497,7 @@ body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* =====================================================================
-   ACHIEVEMENTS SECTION (MARQUEE)
-===================================================================== */
+/* achievements section */
 .achievements-container {
   width: 100%;
   padding: 4rem 0;
@@ -2588,8 +2513,6 @@ body {
   width: 100%;
   overflow: hidden;
   padding: 2rem 0;
-  /* Add padding so hover translation and box shadows are not clipped */
-  /* Add subtle gradient fades on the left and right edges */
   mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
   -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
@@ -2601,7 +2524,6 @@ body {
   animation: marquee-scroll 25s linear infinite;
 }
 
-/* Pause the animation on hover for better readability */
 .achievements-marquee-track:hover {
   animation-play-state: paused;
 }
@@ -2612,9 +2534,7 @@ body {
   }
 
   100% {
-    /* Translate exactly 50% to seamlessly loop the two identical sets */
     transform: translateX(calc(-50% - 1rem));
-    /* -1rem to account for half the gap */
   }
 }
 
@@ -2699,13 +2619,10 @@ body {
   }
 }
 
-/* =====================================================================
-   GITHUB INTELLIGENCE SECTION
-===================================================================== */
+/* github section */
 .github-section-container {
   width: 100%;
   padding: 1rem 2rem 4rem;
-  /* Reduced top padding from 4rem to 1rem */
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -2788,9 +2705,7 @@ body {
   }
 }
 
-/* =====================================================================
-   GALLERY SECTION
-===================================================================== */
+/* gallery section */
 .gallery-section-container {
   width: 100%;
   padding: 1rem 2rem 4rem;
@@ -2798,7 +2713,6 @@ body {
   margin: 0 auto;
 }
 
-/* Scrapbook Layout */
 .scrapbook-wrapper {
   display: flex;
   justify-content: center;
@@ -2842,7 +2756,6 @@ body {
   box-shadow: none;
 }
 
-/* 3D Flipper Mechanics */
 .scrapbook-flipper {
   position: absolute;
   top: 0;
@@ -3226,7 +3139,6 @@ body {
 
 .polaroid-card {
   background-color: #fcf9f2;
-  /* slightly aged polaroid */
   padding: 8px 8px 15px 8px;
   border-radius: 2px;
   box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.4);
@@ -3245,11 +3157,9 @@ body {
   top: -12px;
   left: 50%;
   transform: translateX(-50%) rotate(calc(-5deg + 10deg * var(--random, 0.5)));
-  /* random rotation simulation */
   width: 40px;
   height: 20px;
   background-color: rgba(220, 210, 180, 0.6);
-  /* Washi tape look */
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   z-index: 5;
 }
@@ -3417,7 +3327,6 @@ body {
   transform: translateY(-3px);
 }
 
-/* Form Styles */
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -3470,9 +3379,7 @@ body {
   }
 }
 
-/* =====================================================================
-   UFO INTERACTIVE STYLES
-===================================================================== */
+/* game section - ufo */
 
 .ufo-ship {
   position: absolute;
@@ -3633,9 +3540,7 @@ body {
   }
 }
 
-/* =====================================================================
-   FOOTER SECTION
-===================================================================== */
+/* footer section */
 .portfolio-footer {
   width: 100%;
   padding: 2rem 0.5rem 2rem;
@@ -3783,8 +3688,8 @@ body {
   font-weight: 500;
   background: rgba(10, 10, 25, 0.4);
   backdrop-filter: blur(4px);
-  border: 1px solid rgba(255,255,255,0.1);
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   letter-spacing: 0.5px;
 }
@@ -3798,6 +3703,7 @@ body {
   color: #c9a5f5;
   box-shadow: inset 0 0 10px rgba(167, 119, 227, 0.1);
 }
+
 .badge-purple:hover {
   border-color: rgba(167, 119, 227, 0.8);
   box-shadow: inset 0 0 15px rgba(167, 119, 227, 0.2), 0 0 10px rgba(167, 119, 227, 0.3);
@@ -3808,6 +3714,7 @@ body {
   color: #a5dff5;
   box-shadow: inset 0 0 10px rgba(119, 200, 227, 0.1);
 }
+
 .badge-blue:hover {
   border-color: rgba(119, 200, 227, 0.8);
   box-shadow: inset 0 0 15px rgba(119, 200, 227, 0.2), 0 0 10px rgba(119, 200, 227, 0.3);
@@ -3818,6 +3725,7 @@ body {
   color: #f5a5c9;
   box-shadow: inset 0 0 10px rgba(227, 119, 167, 0.1);
 }
+
 .badge-pink:hover {
   border-color: rgba(227, 119, 167, 0.8);
   box-shadow: inset 0 0 15px rgba(227, 119, 167, 0.2), 0 0 10px rgba(227, 119, 167, 0.3);
@@ -3828,6 +3736,7 @@ body {
   color: #a5f5df;
   box-shadow: inset 0 0 10px rgba(119, 227, 200, 0.1);
 }
+
 .badge-cyan:hover {
   border-color: rgba(119, 227, 200, 0.8);
   box-shadow: inset 0 0 15px rgba(119, 227, 200, 0.2), 0 0 10px rgba(119, 227, 200, 0.3);
@@ -3838,6 +3747,7 @@ body {
   color: #a5bef5;
   box-shadow: inset 0 0 10px rgba(119, 147, 227, 0.1);
 }
+
 .badge-indigo:hover {
   border-color: rgba(119, 147, 227, 0.8);
   box-shadow: inset 0 0 15px rgba(119, 147, 227, 0.2), 0 0 10px rgba(119, 147, 227, 0.3);
@@ -3851,5 +3761,7 @@ body {
 }
 
 @keyframes blink {
-  50% { opacity: 0; }
+  50% {
+    opacity: 0;
+  }
 }

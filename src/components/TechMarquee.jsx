@@ -1,8 +1,8 @@
 import React from 'react';
-import { 
-  SiPython, SiCplusplus, SiC, SiHtml5, SiCss, SiJavascript, SiReact, SiChartdotjs, 
-  SiNodedotjs, SiExpress, SiFirebase, SiMongodb, SiSupabase, SiTypescript, SiJupyter, 
-  SiGoogledocs, SiCanva, SiNumpy, SiPandas, SiGooglecloud, SiMysql, SiScikitlearn, 
+import {
+  SiPython, SiCplusplus, SiC, SiHtml5, SiCss, SiJavascript, SiReact, SiChartdotjs,
+  SiNodedotjs, SiExpress, SiFirebase, SiMongodb, SiSupabase, SiTypescript, SiJupyter,
+  SiGoogledocs, SiCanva, SiNumpy, SiPandas, SiGooglecloud, SiMysql, SiScikitlearn,
   SiGit, SiGithub
 } from 'react-icons/si';
 import { FaRobot, FaBrain, FaChartPie, FaCode } from 'react-icons/fa';
@@ -51,7 +51,6 @@ const TechPill = ({ name, icon }) => (
 export default function TechMarquee() {
   return (
     <div className="tech-marquee-container">
-      {/* Row 1 - Moves Right */}
       <div className="marquee-row right">
         <div className="marquee-content">
           {row1.map((tech, i) => (
@@ -65,7 +64,6 @@ export default function TechMarquee() {
         </div>
       </div>
 
-      {/* Row 2 - Moves Left */}
       <div className="marquee-row left">
         <div className="marquee-content">
           {row2.map((tech, i) => (

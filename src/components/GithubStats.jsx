@@ -6,11 +6,11 @@ export default function GithubStats() {
   const username = 'Sneha-0409';
   const theme = 'tokyonight';
   const hideBorder = true;
-  const bgColor = '14141d'; // matching the space theme
+  const bgColor = '14141d';
   const titleColor = 'c2b5f5';
   const textColor = 'a09d9c';
   const iconColor = 'ffffff';
-  const lineColor = 'ff3333'; // bright red
+  const lineColor = 'ff3333';
 
   // API URLs
   const statsUrl = `https://github-readme-stats.vercel.app/api?username=${username}&show_icons=true&theme=${theme}&hide_border=${hideBorder}&bg_color=${bgColor}&title_color=${titleColor}&text_color=${textColor}&icon_color=${iconColor}&ring_color=${titleColor}`;
@@ -84,7 +84,7 @@ export default function GithubStats() {
             dark: ['rgba(255, 255, 255, 0.05)', '#0e4429', '#006d32', '#26a641', '#39d353']
           }}
           style={{
-            color: '#ffcc00' // Matches the yellow text from screenshot
+            color: '#ffcc00'
           }}
           blockSize={15}
           blockMargin={5}

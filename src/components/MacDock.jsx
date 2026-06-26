@@ -4,16 +4,13 @@ import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
 function AppIcon({ mouseY, icon, label, url, bgColor }) {
   let ref = useRef(null);
 
-  // Calculate distance from mouse to the center of this icon
   let distance = useTransform(mouseY, (val) => {
     let bounds = ref.current?.getBoundingClientRect() ?? { y: 0, height: 0 };
     return val - bounds.y - bounds.height / 2;
   });
 
-  // Base width is 38px, max is 75px when mouse is directly over
   let widthSync = useTransform(distance, [-150, 0, 150], [38, 75, 38]);
   let springWidth = useSpring(widthSync, { mass: 0.1, stiffness: 150, damping: 12 });
-  // Clamp to prevent spring overshoot from generating negative/invalid widths
   let width = useTransform(springWidth, (val) => Math.max(38, Math.min(val, 75)));
 
   const [hovered, setHovered] = useState(false);
@@ -33,7 +30,7 @@ function AppIcon({ mouseY, icon, label, url, bgColor }) {
         <img src={icon} alt={label} className="dock-item-img" />
       </motion.a>
       {hovered && (
-        <motion.div 
+        <motion.div
           className="dock-tooltip"
           initial={{ opacity: 0, y: 5 }}
           animate={{ opacity: 1, y: 0 }}
@@ -58,7 +55,7 @@ export default function MacDock() {
   ];
 
   return (
-    <motion.div 
+    <motion.div
       className="mac-dock-wrapper"
       initial={{ x: -100, y: "-50%", opacity: 0 }}
       animate={{ x: 0, y: "-50%", opacity: 1 }}

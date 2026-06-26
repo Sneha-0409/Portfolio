@@ -77,7 +77,6 @@ export default function TopProjects() {
       </div>
 
       <div className="top-projects-content">
-        {/* Left: CSS Laptop Frame */}
         <div className="laptop-showcase">
           <div className="laptop-screen-frame">
             <div className="laptop-camera"></div>
@@ -101,14 +100,12 @@ export default function TopProjects() {
           </div>
         </div>
 
-        {/* Center: Next Arrow */}
         <button className="next-project-arrow" onClick={handleNext} aria-label="Next Project">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <polyline points="9 18 15 12 9 6"></polyline>
           </svg>
         </button>
 
-        {/* Right: Project Details Panel */}
         <div className="project-details-panel">
           <AnimatePresence mode="wait">
             <motion.div

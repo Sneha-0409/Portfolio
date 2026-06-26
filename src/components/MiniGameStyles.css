@@ -1,7 +1,4 @@
-
-/* =========================================
-   Arcade Mini Game Overlay Styles
-   ========================================= */
+/* mini game section */
 
 .mini-game-overlay {
   position: fixed;
@@ -13,13 +10,13 @@
   z-index: 9999;
   overflow: hidden;
   pointer-events: auto;
-  cursor: none; /* Hide default cursor */
+  cursor: none;
 }
 
-/* To hide cursor globally when game is active */
 body.game-active {
   cursor: none;
 }
+
 body.game-active * {
   cursor: none !important;
 }
@@ -30,13 +27,13 @@ body.game-active * {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: 
-    radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
-    radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
-    radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0,0,0,0)),
-    radial-gradient(2px 2px at 90px 40px, #fff, rgba(0,0,0,0)),
-    radial-gradient(2px 2px at 130px 80px, #fff, rgba(0,0,0,0)),
-    radial-gradient(2px 2px at 160px 120px, #ddd, rgba(0,0,0,0));
+  background-image:
+    radial-gradient(2px 2px at 20px 30px, #eee, rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 40px 70px, #fff, rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 90px 40px, #fff, rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 130px 80px, #fff, rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 160px 120px, #ddd, rgba(0, 0, 0, 0));
   background-repeat: repeat;
   background-size: 200px 200px;
   animation: starsMove 100s linear infinite;
@@ -45,8 +42,13 @@ body.game-active * {
 }
 
 @keyframes starsMove {
-  from { transform: translateY(0); }
-  to { transform: translateY(-1000px); }
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-1000px);
+  }
 }
 
 .game-hud {
@@ -79,11 +81,12 @@ body.game-active * {
   border-radius: 4px;
   font-family: 'Inter', sans-serif;
   font-size: 1rem;
-  cursor: none !important; /* override since body is game-active */
+  cursor: none !important;
   transition: all 0.3s;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
+
 .exit-game-btn:hover {
   background: rgba(255, 51, 102, 0.5);
   box-shadow: 0 0 15px rgba(255, 51, 102, 0.6);
@@ -101,7 +104,10 @@ body.game-active * {
   pointer-events: none;
 }
 
-#lasers-container, #badges-container, #particles-container, #float-text-container {
+#lasers-container,
+#badges-container,
+#particles-container,
+#float-text-container {
   position: absolute;
   top: 0;
   left: 0;
@@ -118,8 +124,8 @@ body.game-active * {
   left: 0;
   pointer-events: none;
   z-index: 10001;
-  transform: translate(-50%, -50%); /* Center the UFO on the cursor coords */
-  margin-top: -20px; /* Offset so laser shoots from top */
+  transform: translate(-50%, -50%);
+  margin-top: -20px;
   margin-left: -20px;
   font-size: 40px;
   filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.8));
@@ -127,8 +133,13 @@ body.game-active * {
 }
 
 @keyframes ufoHover {
-  from { filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.8)) translateY(0px); }
-  to { filter: drop-shadow(0 0 20px rgba(0, 255, 255, 1)) translateY(-5px); }
+  from {
+    filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.8)) translateY(0px);
+  }
+
+  to {
+    filter: drop-shadow(0 0 20px rgba(0, 255, 255, 1)) translateY(-5px);
+  }
 }
 
 .game-laser {
@@ -222,20 +233,17 @@ body.game-active * {
   font-family: 'Inter', sans-serif;
 }
 
-/* Vinyl Music Player */
 .vinyl-record {
   width: 45px;
   height: 45px;
-  background: repeating-radial-gradient(
-    #111,
-    #111 2px,
-    #222 3px,
-    #222 4px
-  );
+  background: repeating-radial-gradient(#111,
+      #111 2px,
+      #222 3px,
+      #222 4px);
   border-radius: 50%;
   position: relative;
   cursor: pointer;
-  box-shadow: 0 0 10px rgba(0,0,0,0.8), inset 0 0 2px rgba(255,255,255,0.3);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8), inset 0 0 2px rgba(255, 255, 255, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -250,7 +258,7 @@ body.game-active * {
   border-radius: 50%;
   position: relative;
   z-index: 2;
-  box-shadow: inset 0 0 3px rgba(0,0,0,0.8);
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.8);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -266,12 +274,17 @@ body.game-active * {
 
 .vinyl-record.playing {
   animation: spinVinyl 2s linear infinite;
-  box-shadow: 0 0 15px rgba(167, 119, 227, 0.5), inset 0 0 2px rgba(255,255,255,0.3);
+  box-shadow: 0 0 15px rgba(167, 119, 227, 0.5), inset 0 0 2px rgba(255, 255, 255, 0.3);
 }
 
 @keyframes spinVinyl {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .vinyl-record:hover {
@@ -297,7 +310,7 @@ body.game-active * {
 }
 
 .global-vinyl .vinyl-center::after {
-  content: none; /* remove hole to fit text better */
+  content: none;
 }
 
 .vinyl-text {
@@ -308,13 +321,14 @@ body.game-active * {
   letter-spacing: 0.5px;
   text-transform: uppercase;
   z-index: 3;
-  text-shadow: 0 0 3px rgba(0,0,0,0.8);
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
 }
 
 @media (max-width: 768px) {
   .play-game-btn {
     display: none !important;
   }
+
   .game-mobile-fallback {
     display: block;
   }

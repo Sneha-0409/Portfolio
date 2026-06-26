@@ -13,20 +13,19 @@ export default function SparkleTrail() {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     };
-    
+
     window.addEventListener('resize', resize);
     resize();
 
     const handleMouseMove = (e) => {
-      // Spawn tiny star sparkles
-      for(let i = 0; i < 3; i++) {
+      for (let i = 0; i < 3; i++) {
         particles.push({
           x: e.clientX,
           y: e.clientY,
           vx: (Math.random() - 0.5) * 1.5,
           vy: (Math.random() - 0.5) * 1.5,
-          life: 1, 
-          size: Math.random() * 1.5 + 0.5 
+          life: 1,
+          size: Math.random() * 1.5 + 0.5
         });
       }
     };
@@ -35,28 +34,26 @@ export default function SparkleTrail() {
 
     const render = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
-      // Iterate backwards when splicing
+
       for (let i = particles.length - 1; i >= 0; i--) {
         const p = particles[i];
         p.x += p.vx;
         p.y += p.vy;
-        p.life -= 0.015; // fade out slowly
-        
+        p.life -= 0.015;
+
         if (p.life <= 0) {
           particles.splice(i, 1);
         } else {
           ctx.beginPath();
           ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-          // Pastel-ish white/yellow sparkle color
           ctx.fillStyle = `rgba(255, 250, 240, ${p.life})`;
           ctx.fill();
         }
       }
-      
+
       animationFrameId = requestAnimationFrame(render);
     };
-    
+
     render();
 
     return () => {
@@ -67,8 +64,8 @@ export default function SparkleTrail() {
   }, []);
 
   return (
-    <canvas 
-      ref={canvasRef} 
+    <canvas
+      ref={canvasRef}
       style={{
         position: 'absolute',
         top: 0,
@@ -77,7 +74,7 @@ export default function SparkleTrail() {
         height: '100vh',
         pointerEvents: 'none',
         zIndex: 5
-      }} 
+      }}
     />
   );
 }
