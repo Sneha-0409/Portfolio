@@ -1,0 +1,232 @@
+
+/* =========================================
+   Arcade Mini Game Overlay Styles
+   ========================================= */
+
+.mini-game-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at center, rgba(15, 10, 30, 0.8) 0%, rgba(5, 5, 10, 0.95) 100%);
+  z-index: 9999;
+  overflow: hidden;
+  pointer-events: auto;
+  cursor: none; /* Hide default cursor */
+}
+
+/* To hide cursor globally when game is active */
+body.game-active {
+  cursor: none;
+}
+body.game-active * {
+  cursor: none !important;
+}
+
+.game-stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 90px 40px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 130px 80px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 160px 120px, #ddd, rgba(0,0,0,0));
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  animation: starsMove 100s linear infinite;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+@keyframes starsMove {
+  from { transform: translateY(0); }
+  to { transform: translateY(-1000px); }
+}
+
+.game-hud {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  z-index: 10000;
+}
+
+.game-score {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.game-score span {
+  color: #ff3366;
+}
+
+.exit-game-btn {
+  background: rgba(255, 51, 102, 0.2);
+  border: 1px solid #ff3366;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  cursor: none !important; /* override since body is game-active */
+  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.exit-game-btn:hover {
+  background: rgba(255, 51, 102, 0.5);
+  box-shadow: 0 0 15px rgba(255, 51, 102, 0.6);
+}
+
+.game-instructions {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Inter', sans-serif;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1rem;
+  letter-spacing: 1px;
+  pointer-events: none;
+}
+
+#lasers-container, #badges-container, #particles-container, #float-text-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9998;
+}
+
+/* Interactive Elements */
+.ufo-cursor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 10001;
+  transform: translate(-50%, -50%); /* Center the UFO on the cursor coords */
+  margin-top: -20px; /* Offset so laser shoots from top */
+  margin-left: -20px;
+  font-size: 40px;
+  filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.8));
+  animation: ufoHover 2s ease-in-out infinite alternate;
+}
+
+@keyframes ufoHover {
+  from { filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.8)) translateY(0px); }
+  to { filter: drop-shadow(0 0 20px rgba(0, 255, 255, 1)) translateY(-5px); }
+}
+
+.game-laser {
+  position: absolute;
+  width: 4px;
+  height: 25px;
+  background: #00ffff;
+  border-radius: 2px;
+  box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+  pointer-events: none;
+  z-index: 9999;
+  transform-origin: center bottom;
+}
+
+.game-badge {
+  position: absolute;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  pointer-events: none;
+  z-index: 9998;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.game-particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  box-shadow: 0 0 8px currentColor;
+}
+
+.game-float-text {
+  position: absolute;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: 1.2rem;
+  text-shadow: 0 0 5px #ff3366, 0 0 10px #ff3366;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Start game button */
+.play-game-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  gap: 12px;
+  background: linear-gradient(135deg, rgba(110, 142, 251, 0.1), rgba(167, 119, 227, 0.1));
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 1.05rem;
+  padding: 12px 28px;
+  border-radius: 50px;
+  border: 1px solid rgba(167, 119, 227, 0.4);
+  cursor: pointer;
+  margin-top: 15px;
+  margin-bottom: 25px;
+  position: relative;
+  z-index: 50;
+  box-shadow: 0 4px 15px rgba(110, 142, 251, 0.2), inset 0 0 10px rgba(167, 119, 227, 0.1);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  backdrop-filter: blur(10px);
+}
+
+.play-game-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  background: linear-gradient(135deg, rgba(110, 142, 251, 0.2), rgba(167, 119, 227, 0.3));
+  border: 1px solid rgba(167, 119, 227, 0.8);
+  box-shadow: 0 8px 25px rgba(110, 142, 251, 0.4), inset 0 0 15px rgba(167, 119, 227, 0.3);
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+.game-mobile-fallback {
+  display: none;
+  margin-top: 20px;
+  color: #888;
+  font-style: italic;
+  font-family: 'Inter', sans-serif;
+}
+
+@media (max-width: 768px) {
+  .play-game-btn {
+    display: none !important;
+  }
+  .game-mobile-fallback {
+    display: block;
+  }
+}

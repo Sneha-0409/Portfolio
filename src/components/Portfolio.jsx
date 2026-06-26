@@ -8,14 +8,16 @@ import Achievements from './Achievements';
 import GithubStats from './GithubStats';
 import PhotoGallery from './PhotoGallery';
 import Contact from './Contact';
+import MiniGameOverlay from './MiniGameOverlay';
+import './MiniGameStyles.css';
 import heroImg from '../assets/sneha.jpg';
 import heroSketch from '../assets/sketch_portrait.png';
-import FallingTechBackground from './FallingTechBackground';
 import MacDock from './MacDock';
 
 export default function Portfolio() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const [isGameActive, setIsGameActive] = useState(false);
   const [scrollContainer, setScrollContainer] = useState(null);
 
   useEffect(() => {
@@ -216,7 +218,6 @@ export default function Portfolio() {
           </section>
 
           <section id="about" className="portfolio-section" style={{ position: 'relative', overflow: 'hidden' }}>
-            <FallingTechBackground />
             <div className="split-layout" style={{ width: '100%', maxWidth: '1200px', margin: '0 auto', padding: '2rem', position: 'relative', zIndex: 10 }}>
 
               {/* Left Column: Image */}
@@ -304,6 +305,8 @@ export default function Portfolio() {
                   </p>
                 </div>
 
+
+
                 <div className="education-cards">
                   <div className="education-card">
                     <h3 className="ed-title">BTech Computer Science</h3>
@@ -328,6 +331,18 @@ export default function Portfolio() {
                     </svg>
                     Download CV
                   </a>
+
+                  <button 
+                    className="play-game-btn"
+                    onClick={() => {
+                      console.log("Play Game Clicked");
+                      setIsGameActive(true);
+                    }}
+                    style={{ position: 'relative', zIndex: 99999, pointerEvents: 'auto', marginTop: 0, marginBottom: 0 }}
+                  >
+                    <span style={{ fontSize: '1.2rem' }}>🎮</span> Play Mini Game
+                  </button>
+                  <p className="game-mobile-fallback" style={{ margin: 0, alignSelf: 'center' }}>This mini game is available on desktop.</p>
 
 
                 </div>
@@ -394,6 +409,9 @@ export default function Portfolio() {
         <AnimatePresence>
           {activeSection !== 'home' && <MacDock />}
         </AnimatePresence>
+        {isGameActive && (
+          <MiniGameOverlay onExit={() => setIsGameActive(false)} />
+        )}
       </main>
     </div>
   );
