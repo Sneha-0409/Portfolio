@@ -6,7 +6,7 @@ import imgHackathon from '../assets/hackathon.jpg';
 import imgCloud from '../assets/cloud.jpg';
 import imgNcat from '../assets/ncat.jpg';
 import imgCo from '../assets/co.jpg';
-import imgSneha from '../assets/sneha.PNG';
+import imgSneha from '../assets/Sneha.PNG';
 import imgHack from '../assets/hack.JPG';
 import imgHvard from '../assets/hvard.jpg';
 
