@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from 'framer-motion';
 import TechMarquee from './TechMarquee';
 import TopProjects from './TopProjects';
@@ -18,7 +18,48 @@ export default function Portfolio() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [isGameActive, setIsGameActive] = useState(false);
+  const [isMusicPlaying, setIsMusicPlaying] = useState(false);
   const [scrollContainer, setScrollContainer] = useState(null);
+  const audioRef = useRef(null);
+
+  const roles = ["Full Stack Developer", "AI/ML Enthusiast", "Data Science", "DSA", "C++", "Python"];
+  const [text, setText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [loopNum, setLoopNum] = useState(0);
+
+  useEffect(() => {
+    let timer;
+    const currentRole = roles[loopNum % roles.length];
+    
+    if (isDeleting) {
+      timer = setTimeout(() => {
+        setText(currentRole.substring(0, text.length - 1));
+        if (text.length <= 1) {
+          setIsDeleting(false);
+          setLoopNum(loopNum + 1);
+        }
+      }, 50); // Deleting speed
+    } else {
+      if (text === currentRole) {
+        timer = setTimeout(() => setIsDeleting(true), 2000); // Pause when word is complete
+      } else {
+        timer = setTimeout(() => {
+          setText(currentRole.substring(0, text.length + 1));
+        }, 100); // Typing speed
+      }
+    }
+    
+    return () => clearTimeout(timer);
+  }, [text, isDeleting, loopNum]);
+
+  const toggleMusic = () => {
+    if (isMusicPlaying) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play();
+    }
+    setIsMusicPlaying(!isMusicPlaying);
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -91,6 +132,25 @@ export default function Portfolio() {
       </header>
 
       <main className="portfolio-main">
+        <AnimatePresence>
+          {activeSection === 'about' && !isGameActive && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.3 }}
+              className={`vinyl-record ${isMusicPlaying ? 'playing' : ''} global-vinyl`}
+              onClick={toggleMusic}
+              title={isMusicPlaying ? 'Pause Music' : 'Play Music'}
+            >
+              <div className="vinyl-center">
+                <span className="vinyl-text">{isMusicPlaying ? 'PAUSE' : 'PLAY'}</span>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+        <audio ref={audioRef} src="https://upload.wikimedia.org/wikipedia/commons/4/4b/MacLeod%2C_Kevin_-_The_Complex.ogg" loop />
+
         <div
           className="portfolio-scroll-container"
           ref={setScrollContainer}
@@ -155,7 +215,7 @@ export default function Portfolio() {
                   transition={{ duration: 0.8, delay: 0.6 }}
                   viewport={{ once: true }}
                 >
-                  <button 
+                  <button
                     className="s-btn-primary"
                     onClick={() => document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })}
                   >
@@ -294,15 +354,23 @@ export default function Portfolio() {
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
                 <h1 className="name-title hollow-text">Sneha</h1>
-                <h2 className="role-title">Full Stack Developer</h2>
+                <h2 className="role-title">
+                  {text}
+                </h2>
 
                 <div className="description">
                   <p>
                     I'm a 3rd year undergraduate Computer Science student at MITS-DU, Gwalior, with a strong interest in AI/ML, Data Science, Full Stack Development and Software Engineering. I primarily code in C++ and enjoy developing Intelligent solutions that solve real-world challenges. I'm an active open-source contributor (NSoC '26 & GSSoC '26), a 3× hackathon finalist, and someone who believes there's always something new to learn. I also serve as the Class Representative, Secretary of IEEE RAS SBC MITS-DU and a Core Member of Google Developers Group on Campus MITS-DU, helping organize and grow the campus tech community.
                   </p>
                   <p className="italic-quote">
-                    Something I believe: Tomorrow doesn't need to be perfect. It just needs to be tomorrow.
+                    Tomorrow doesn't need to be perfect. It just needs to be tomorrow.
                   </p>
+
+                  <div className="about-badges">
+                    <span className="about-badge badge-pink">Open Source Contributor</span>
+                    <span className="about-badge badge-cyan">Secretary IEEE RAS</span>
+                    <span className="about-badge badge-indigo">3x Hackathon Finalist</span>
+                  </div>
                 </div>
 
 
@@ -332,7 +400,7 @@ export default function Portfolio() {
                     Download CV
                   </a>
 
-                  <button 
+                  <button
                     className="play-game-btn"
                     onClick={() => {
                       console.log("Play Game Clicked");
@@ -342,8 +410,8 @@ export default function Portfolio() {
                   >
                     <span style={{ fontSize: '1.2rem' }}>🎮</span> Play Mini Game
                   </button>
-                  <p className="game-mobile-fallback" style={{ margin: 0, alignSelf: 'center' }}>This mini game is available on desktop.</p>
 
+                  <p className="game-mobile-fallback" style={{ margin: 0, alignSelf: 'center' }}>This mini game is available on desktop.</p>
 
                 </div>
               </motion.div>
