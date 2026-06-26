@@ -50,12 +50,11 @@ export default function MacDock() {
   let mouseY = useMotionValue(99999);
 
   const apps = [
-    { label: 'GitHub', url: '#', bgColor: '#24292e', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg' },
-    { label: 'LinkedIn', url: '#', bgColor: '#0077b5', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg' },
-    { label: 'Email', url: '#', bgColor: '#ea4335', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/gmail.svg' },
-    { label: 'X', url: '#', bgColor: '#000000', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg' },
-    { label: 'LeetCode', url: '#', bgColor: '#f79f1b', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/leetcode.svg' },
-    { label: 'Discord', url: '#', bgColor: '#5865F2', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/discord.svg' }
+    { label: 'GitHub', url: 'https://github.com/Sneha-0409', bgColor: '#24292e', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg' },
+    { label: 'LinkedIn', url: 'https://www.linkedin.com/in/sneha-96228632b?utm_source=share_via&utm_content=profile&utm_medium=member_ios', bgColor: '#0077b5', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg' },
+    { label: 'Email', url: 'mailto:sneha044l2005@gmail.com', bgColor: '#ea4335', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/gmail.svg' },
+    { label: 'LeetCode', url: 'https://leetcode.com/u/sneha_0402/', bgColor: '#f79f1b', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/leetcode.svg' },
+    { label: 'Discord: sneha_0402', url: '#', bgColor: '#5865F2', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/discord.svg' }
   ];
 
   return (

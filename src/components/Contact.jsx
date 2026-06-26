@@ -36,20 +36,20 @@ export default function Contact() {
           <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
             <input type="text" placeholder="Your Name" className="contact-input" required />
             <input type="email" placeholder="Your Email" className="contact-input" required />
-            <textarea placeholder="Your Message" className="contact-textarea" rows="4" required></textarea>
+            <textarea placeholder="Your Message" className="contact-textarea" rows="2" required></textarea>
             <button type="submit" className="contact-submit-btn">Send Message</button>
           </form>
 
           <div className="contact-divider"></div>
 
           <div className="contact-socials-combined">
-            <a href="mailto:hello@example.com" className="social-icon" title="Email Me">
+            <a href="mailto:sneha044l2005@gmail.com" className="social-icon" title="Email Me">
               <FaEnvelope />
             </a>
             <a href="https://github.com/Sneha-0409" target="_blank" rel="noreferrer" className="social-icon" title="GitHub">
               <FaGithub />
             </a>
-            <a href="#" target="_blank" rel="noreferrer" className="social-icon" title="LinkedIn">
+            <a href="https://www.linkedin.com/in/sneha-96228632b?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" rel="noreferrer" className="social-icon" title="LinkedIn">
               <FaLinkedin />
             </a>
           </div>

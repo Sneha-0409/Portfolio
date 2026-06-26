@@ -13,14 +13,13 @@ import './MiniGameStyles.css';
 import heroImg from '../assets/sneha.jpg';
 import heroSketch from '../assets/sketch_portrait.png';
 import MacDock from './MacDock';
+import ParticlesNetwork from './ParticlesNetwork';
 
 export default function Portfolio() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [isGameActive, setIsGameActive] = useState(false);
-  const [isMusicPlaying, setIsMusicPlaying] = useState(false);
   const [scrollContainer, setScrollContainer] = useState(null);
-  const audioRef = useRef(null);
 
   const roles = ["Full Stack Developer", "AI/ML Enthusiast", "Data Science", "DSA", "C++", "Python"];
   const [text, setText] = useState("");
@@ -52,14 +51,7 @@ export default function Portfolio() {
     return () => clearTimeout(timer);
   }, [text, isDeleting, loopNum]);
 
-  const toggleMusic = () => {
-    if (isMusicPlaying) {
-      audioRef.current.pause();
-    } else {
-      audioRef.current.play();
-    }
-    setIsMusicPlaying(!isMusicPlaying);
-  };
+
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -132,25 +124,6 @@ export default function Portfolio() {
       </header>
 
       <main className="portfolio-main">
-        <AnimatePresence>
-          {activeSection === 'about' && !isGameActive && (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              transition={{ duration: 0.3 }}
-              className={`vinyl-record ${isMusicPlaying ? 'playing' : ''} global-vinyl`}
-              onClick={toggleMusic}
-              title={isMusicPlaying ? 'Pause Music' : 'Play Music'}
-            >
-              <div className="vinyl-center">
-                <span className="vinyl-text">{isMusicPlaying ? 'PAUSE' : 'PLAY'}</span>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-        <audio ref={audioRef} src="https://upload.wikimedia.org/wikipedia/commons/4/4b/MacLeod%2C_Kevin_-_The_Complex.ogg" loop />
-
         <div
           className="portfolio-scroll-container"
           ref={setScrollContainer}
@@ -278,6 +251,7 @@ export default function Portfolio() {
           </section>
 
           <section id="about" className="portfolio-section" style={{ position: 'relative', overflow: 'hidden' }}>
+            <ParticlesNetwork />
             <div className="split-layout" style={{ width: '100%', maxWidth: '1200px', margin: '0 auto', padding: '2rem', position: 'relative', zIndex: 10 }}>
 
               {/* Left Column: Image */}
