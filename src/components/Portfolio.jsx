@@ -153,9 +153,13 @@ export default function Portfolio() {
                   transition={{ duration: 0.8, delay: 0.6 }}
                   viewport={{ once: true }}
                 >
-                  <button className="s-btn-primary">VIEW PROJECTS</button>
+                  <button 
+                    className="s-btn-primary"
+                    onClick={() => document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })}
+                  >
+                    VIEW PROJECTS
+                  </button>
                 </motion.div>
-
               </div>
 
               <div className="s-hero-right">

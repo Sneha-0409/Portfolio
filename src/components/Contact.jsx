@@ -14,9 +14,9 @@ export default function Contact() {
           viewport={{ once: true }}
         >
           <h1 className="motivational-quote">
-            "The future belongs to those who learn more skills and combine them in creative ways."
+            "Dream, dream, dream. Dreams transform into thoughts and thoughts result in action."
           </h1>
-          <p className="quote-author">— Robert Greene</p>
+          <p className="quote-author">- Dr. A.P.J. Abdul Kalam</p>
         </motion.div>
 
         <motion.div 

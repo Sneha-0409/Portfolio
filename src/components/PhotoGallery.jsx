@@ -1,6 +1,14 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import sketchReal from '../assets/sneha.jpg';
+import img1 from '../assets/1.jpg';
+import imgPitch from '../assets/pitch.jpg';
+import img2 from '../assets/2.jpg';
+import img3 from '../assets/3.jpg';
+import imgAnchor from '../assets/anchor.JPG';
+import imgPes from '../assets/pes.JPG';
+import imgHackorbit from '../assets/hackorbit.JPG';
+import imgRobo from '../assets/robo.JPG';
 import sketchPortrait from '../assets/sketch_portrait.png';
 import sketchAnimal from '../assets/sketch_animal.png';
 import sketchLandscape from '../assets/sketch_landscape.png';
@@ -13,65 +21,59 @@ import meProgrammingImg from '../assets/me-programming.png';
 const galleryItems = [
   {
     id: 1,
-    img: sketchReal,
-    title: 'Self Portrait',
-    desc: 'A realistic pencil sketch exploring depth and emotion.',
+    img: img1,
+    title: 'ORBIX IIIT Delhi Hackathon',
     rotate: -4,
     yOffset: 15
   },
   {
     id: 2,
-    img: sketchPortrait,
-    title: 'Mysterious Aura',
-    desc: 'An artistic portrait focusing on dramatic, realistic shading.',
+    img: imgPitch,
+    desc: 'Delivering a Hackathon Project presentation pitch.',
     rotate: 3,
     yOffset: -10
   },
   {
     id: 3,
-    img: sketchAnimal,
-    title: 'Wild Roar',
-    desc: 'Capturing the raw power of wildlife with intricate pencil strokes.',
+    img: img2,
+    title: '1st offline Hackathon',
+    desc: 'Code Coalescence at MITS-DU Gwalior',
     rotate: -5,
     yOffset: 25
   },
   {
     id: 4,
-    img: sketchLandscape,
-    title: 'Silent Path',
-    desc: 'Ancient trees and a quiet forest path brought to life.',
+    img: img3,
+    title: 'Team WorkSync',
     rotate: 6,
     yOffset: 5
   },
   {
     id: 5,
-    img: sketchScifi,
-    title: 'Cyber Alley',
-    desc: 'A futuristic concept sketch filled with neon and shadows.',
+    img: imgAnchor,
+    desc: 'Anchored at International Webinar Gridtech',
     rotate: -3,
     yOffset: -20
   },
   {
     id: 6,
-    img: sketchArchitecture,
-    title: 'Gothic Dreams',
-    desc: 'Intricate architectural details of an ancient cathedral.',
+    img: imgPes,
+    title: 'IEEE PES Day Ambassador',
+    desc: '1st Ambassador meet',
     rotate: 4,
     yOffset: 15
   },
   {
     id: 7,
-    img: sketchBotanical,
-    title: 'Botanical Grace',
-    desc: 'Intricate botanical flowers and leaves drawn with precision.',
+    img: imgHackorbit,
+    desc: 'Anchored at National Level Hackathon - Hackorbit, Closing Ceremony',
     rotate: -6,
     yOffset: -5
   },
   {
     id: 8,
-    img: sketchFantasy,
-    title: 'Dragon\'s Peak',
-    desc: 'A majestic dragon perched above a classic fantasy landscape.',
+    img: imgRobo,
+    desc: 'Anchored at Robocode event by IEEE RAS',
     rotate: 5,
     yOffset: 20
   }
@@ -86,7 +88,7 @@ export default function PhotoGallery() {
     <div className="gallery-section-container">
       <div className="github-header">
         <div className="github-header-line"></div>
-        <h2 className="journey-title" style={{ textAlign: 'center', marginBottom: '2rem' }}>
+        <h2 className="journey-title" style={{ textAlign: 'center', marginBottom: '2rem', fontSize: '2.5rem' }}>
           <span className="text-gradient">SCRAPBOOK</span>
         </h2>
         <div className="github-header-line"></div>
@@ -136,7 +138,7 @@ export default function PhotoGallery() {
               Memories... ❤️
             </div>
             <div className="scrapbook-doodle" style={{ bottom: '2%', right: '5%', transform: 'rotate(-5deg)' }}>
-              2024 Collection
+              2024 - Present Collection
             </div>
           </div>
 
@@ -202,7 +204,7 @@ export default function PhotoGallery() {
                 className="premium-label"
                 whileHover={{ scale: 1.02 }}
               >
-                <h3 className="label-title">Photo Gallery</h3>
+                <h3 className="label-title">Some memories from College life so far!</h3>
                 <p className="label-subtitle">Click to open</p>
               </motion.div>
             </div>
@@ -231,7 +233,7 @@ export default function PhotoGallery() {
               </div>
               {/* Scrapbook Doodles */}
               <div className="scrapbook-doodle" style={{ top: '2%', left: '4%', transform: 'rotate(-8deg)' }}>
-                Art Journey! ✨
+                Journey so far! ✨
               </div>
             </div>
           </motion.div>
