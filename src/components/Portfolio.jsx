@@ -147,32 +147,32 @@ export default function Portfolio() {
 
           <section id="home" className="hero-section">
 
-            <div className="s-hero-grid">
-              <div className="s-hero-left">
+            <div className="hero-grid">
+              <div className="hero-left">
                 <motion.div
-                  className="s-status-badge"
+                  className="hero-status-badge"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
                   viewport={{ once: true }}
                 >
-                  <span className="s-dot"></span> AVAILABLE FOR OPPORTUNITIES
+                  <span className="hero-dot"></span> AVAILABLE FOR OPPORTUNITIES
                 </motion.div>
 
                 <motion.h1
-                  className="s-main-title"
+                  className="hero-main-title"
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.2 }}
                   viewport={{ once: true }}
                 >
-                  <span className="s-title-solid">Building</span><br />
-                  <span className="s-title-purple">Ideas</span><br />
-                  <span className="s-title-outline">into Reality!</span>
+                  <span className="hero-title-solid">Building</span><br />
+                  <span className="hero-title-purple">Ideas</span><br />
+                  <span className="hero-title-outline">into Reality!</span>
                 </motion.h1>
 
                 <motion.p
-                  className="s-desc"
+                  className="hero-desc"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
@@ -182,14 +182,14 @@ export default function Portfolio() {
                 </motion.p>
 
                 <motion.div
-                  className="s-actions"
+                  className="hero-actions"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.6 }}
                   viewport={{ once: true }}
                 >
                   <button
-                    className="s-btn-primary"
+                    className="hero-btn-primary"
                     onClick={() => document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })}
                   >
                     VIEW PROJECTS
@@ -197,36 +197,36 @@ export default function Portfolio() {
                 </motion.div>
               </div>
 
-              <div className="s-hero-right">
+              <div className="hero-hero-right">
                 <motion.div
-                  className="s-viewfinder"
+                  className="hero-viewfinder"
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.8, delay: 0.5 }}
                   viewport={{ once: true }}
                 >
-                  <div className="s-portrait-container">
+                  <div className="hero-portrait-container">
                     <lottie-player
                       src="https://assets3.lottiefiles.com/packages/lf20_w51pcehl.json"
                       background="transparent"
                       speed="1"
-                      className="s-portrait-img"
+                      className="hero-portrait-img"
                       style={{ objectFit: 'contain' }}
                       loop
                       autoplay
                     ></lottie-player>
-                    <div className="s-portrait-overlay">System Online // Compiling Code...</div>
+                    <div className="hero-portrait-overlay">System Online // Compiling Code...</div>
                   </div>
-                  <div className="s-viewfinder-label">
-                    <span className="s-dot-small"></span> SNEHA · CS ENGINEER
+                  <div className="hero-viewfinder-label">
+                    <span className="hero-dot-small"></span> SNEHA · CS ENGINEER
                   </div>
                 </motion.div>
               </div>
             </div>
 
-            <div className="s-hero-footer">
-              <div className="s-footer-left">~ GWALIOR, INDIA</div>
-              <div className="s-footer-center">
+            <div className="hero-footer">
+              <div className="hero-footer-left">~ GWALIOR, INDIA</div>
+              <div className="hero-footer-center">
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: scrolled ? 0 : 1 }}
@@ -245,7 +245,7 @@ export default function Portfolio() {
                   </motion.svg>
                 </motion.div>
               </div>
-              <div className="s-footer-right">
+              <div className="hero-footer-right">
               </div>
             </div>
           </section>
