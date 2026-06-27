@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 import imgCyberpunk from '../assets/proj_cyberpunk_1782069653371.png';
 import imgGalaxy from '../assets/proj_galaxy_1782069664458.png';
-import imgAi from '../assets/proj_ai_1782069677055.png';
+import imgAi from '../assets/ai.png';
 import imgInsti from '../assets/Insti.png';
 
 const projectsData = [
