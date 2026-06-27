@@ -9,38 +9,17 @@ import imgInsti from '../assets/Insti.png';
 const projectsData = [
   {
     id: 1,
-    title: 'Neo-Kyoto Analytics',
-    status: 'Current',
-    image: imgCyberpunk,
-    shellCommands: [
-      'sneha@dev:~$ cd Neo-Kyoto',
-      'sneha@dev:~/Neo-Kyoto$ npm run build',
-      '[✔] Compiling... Done!'
-    ],
-    feature: '✨ Real-time data visualization dashboard',
-    description: 'A modern, fully responsive dashboard with smooth animations, adaptive dark/light themes, and a sleek UI—all built purely in React.',
-    techStack: ['React', 'Framer Motion', 'Tailwind CSS'],
-    demoLink: '#',
-    githubLink: '#'
+    title: 'KrishiRakshak-AI',
+    status: 'Complete',
+    image: imgAi,
+    feature: '✨ AI-Powered Smart Farming Assistant',
+    description: 'KrishiRakshak AI is an AI-powered smart farming platform that detects crop diseases from images and voice input, providing bilingual diagnosis, treatment recommendations, and voice-enabled guidance for farmers.',
+    techStack: ['Python', 'Machine Learning', 'Deep Learning', 'TensorFlow', 'Computer Vision', 'Generative AI'],
+    demoLink: 'https://krishi-rakshak-ai-9l41.vercel.app/',
+    githubLink: 'https://github.com/Sneha-0409/KrishiRakshak-AI'
   },
   {
     id: 2,
-    title: 'Cosmic Stride',
-    status: 'Completed',
-    image: imgGalaxy,
-    shellCommands: [
-      'sneha@dev:~$ cd Cosmic-Stride',
-      'sneha@dev:~/Cosmic-Stride$ deploy --production',
-      '[✔] Deployment successful!'
-    ],
-    feature: '✨ Seamless 3D WebGL shopping experience',
-    description: 'A galaxy-themed e-commerce platform built for the future. Integrates seamless 3D models and advanced shopping cart features.',
-    techStack: ['Next.js', 'Three.js', 'Stripe'],
-    demoLink: '#',
-    githubLink: '#'
-  },
-  {
-    id: 3,
     title: 'Development of Department Report and Analytics System',
     image: imgInsti,
     feature: '✨ Centralized institutional reporting system',
