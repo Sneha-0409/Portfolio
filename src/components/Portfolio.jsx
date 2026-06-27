@@ -21,7 +21,7 @@ export default function Portfolio() {
   const [isGameActive, setIsGameActive] = useState(false);
   const [scrollContainer, setScrollContainer] = useState(null);
 
-  const roles = ["Full Stack Developer", "AI/ML Enthusiast", "Data Science", "DSA", "C++", "Python"];
+  const roles = ["Web Developer", "AI/ML Enthusiast", "Data Science", "DSA", "C++", "Python"];
   const [text, setText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [loopNum, setLoopNum] = useState(0);

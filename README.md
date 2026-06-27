@@ -3,7 +3,7 @@
 Welcome to my personal developer portfolio! 
 This is a highly interactive, modern, and performance-optimized Application built to showcase my projects, skills, and journey as a Computer Science Student.
 
-🔗 **Live Demo:** [sneha-portfolio.vercel.app](https://portfolio-snehaportfolio.vercel.app) 
+🔗 **Live Demo:** [sneha-portfolio.vercel.app](https://sneha-portfolio.vercel.app) 
 
 ---
 
