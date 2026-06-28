@@ -14,7 +14,7 @@ import imggoogle from '../assets/google.png';
 const achievementsData = [
   {
     id: 1,
-    title: 'Top 1% Contributor (Rank 21/980+)',
+    title: 'Top 2% Contributor (Rank 21/980+)',
     issuer: 'Nexus Spring of Code \'26',
     date: '2026',
     description: 'Contributed to 13 projects with 110 PRs successfully merged.',
@@ -53,6 +53,31 @@ const achievementsData = [
   },
   {
     id: 5,
+    title: 'Google Cloud Skills Certifications',
+    issuer: 'Google Cloud',
+    date: '2025',
+    description: 'Achieved Golden League status (2,906 Points) by completing hands-on labs, reaching Skills Boost Arcade level.',
+    credentialsLink: 'https://www.skills.google/public_profiles/8e879c01-b957-4517-94b7-5b59216f7188',
+    image: imggoogle
+  },
+  {
+    id: 6,
+    title: 'Selected for HPAIR Asia Conference 2026',
+    issuer: 'HPAIR',
+    date: '2026',
+    description: 'Selected for HPAIR Asia Conference 2026 taking place at Hanoi, Vietnam.',
+    image: imgHvard
+  },
+  {
+    id: 7,
+    title: 'Triwizardathon 1.0 Hackathon Finalist',
+    issuer: 'MLSA GLA University & Microsoft',
+    date: '2025',
+    description: 'Finalist at the Hackathon Triwizardathon 1.0 in collab with MLSA GLA University & Microsoft.',
+    image: imgHack
+  },
+  {
+    id: 8,
     title: 'All India Rank 7361',
     issuer: 'Naukri Campus',
     date: '2026',
@@ -61,7 +86,7 @@ const achievementsData = [
     image: imgNcat
   },
   {
-    id: 6,
+    id: 9,
     title: 'Co-Mentor Certificate',
     issuer: 'Hackorbit',
     date: '2026',
@@ -75,38 +100,16 @@ const achievementsData = [
     image: imgCo
   },
   {
-    id: 7,
+    id: 10,
     title: 'Code Coalescence 2025 Offline Hackathon',
     issuer: 'MITS-DU Gwalior',
     date: '2025',
     description: 'Finalist at the Code Coalescence 2025 Offline Hackathon held at MITS-DU Gwalior.',
     image: imgSneha
   },
-  {
-    id: 8,
-    title: 'Triwizardathon 1.0 Hackathon Finalist',
-    issuer: 'MLSA GLA University & Microsoft',
-    date: '2025',
-    description: 'Finalist at the Hackathon Triwizardathon 1.0 in collab with MLSA GLA University & Microsoft.',
-    image: imgHack
-  },
-  {
-    id: 9,
-    title: 'Selected for HPAIR Asia Conference 2026',
-    issuer: 'HPAIR',
-    date: '2026',
-    description: 'Selected for HPAIR Asia Conference 2026 taking place at Hanoi, Vietnam.',
-    image: imgHvard
-  },
-  {
-    id: 10,
-    title: 'Google Cloud Skills Certifications',
-    issuer: 'Google Cloud',
-    date: '2025',
-    description: 'Achieved Golden League status (2,906 Points) by completing hands-on labs, reaching Skills Boost Arcade level.',
-    credentialsLink: 'https://www.skills.google/public_profiles/8e879c01-b957-4517-94b7-5b59216f7188',
-    image: imggoogle
-  }
+  
+  
+  
 ];
 
 const AchievementCard = ({ data, onImageClick }) => (
