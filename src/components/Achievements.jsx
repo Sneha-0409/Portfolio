@@ -9,6 +9,7 @@ import imgCo from '../assets/co.jpg';
 import imgSneha from '../assets/Sneha.PNG';
 import imgHack from '../assets/hack.JPG';
 import imgHvard from '../assets/hvard.jpg';
+import imggoogle from '../assets/google.png';
 
 const achievementsData = [
   {
@@ -96,6 +97,15 @@ const achievementsData = [
     date: '2026',
     description: 'Selected for HPAIR Asia Conference 2026 taking place at Hanoi, Vietnam.',
     image: imgHvard
+  },
+  {
+    id: 10,
+    title: 'Google Cloud Skills Certifications',
+    issuer: 'Google Cloud',
+    date: '2025',
+    description: 'Achieved Golden League status (2,906 Points) by completing hands-on labs, reaching Skills Boost Arcade level.',
+    credentialsLink: 'https://www.skills.google/public_profiles/8e879c01-b957-4517-94b7-5b59216f7188',
+    image: imggoogle
   }
 ];
 
