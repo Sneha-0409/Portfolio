@@ -3,9 +3,9 @@ import {
   SiPython, SiCplusplus, SiC, SiHtml5, SiCss, SiJavascript, SiReact, SiChartdotjs,
   SiNodedotjs, SiExpress, SiFirebase, SiMongodb, SiSupabase, SiTypescript, SiJupyter,
   SiGoogledocs, SiCanva, SiNumpy, SiPandas, SiGooglecloud, SiMysql, SiScikitlearn,
-  SiGit, SiGithub
+  SiGit, SiGithub, SiTensorflow, SiVercel, SiRender
 } from 'react-icons/si';
-import { FaRobot, FaBrain, FaChartPie, FaCode } from 'react-icons/fa';
+import { FaRobot, FaBrain, FaChartPie, FaCode, FaMagic, FaEye } from 'react-icons/fa';
 
 const row1 = [
   { name: 'Machine Learning', icon: <FaRobot color="#ff5722" size={24} /> },
@@ -21,7 +21,10 @@ const row1 = [
   { name: 'React.js', icon: <SiReact color="#61DAFB" size={24} /> },
   { name: 'Chart.js', icon: <SiChartdotjs color="#FF6384" size={24} /> },
   { name: 'Node.js', icon: <SiNodedotjs color="#339933" size={24} /> },
-  { name: 'Express.js', icon: <SiExpress color="#ffffff" size={24} /> }
+  { name: 'Express.js', icon: <SiExpress color="#ffffff" size={24} /> },
+  { name: 'TensorFlow', icon: <SiTensorflow color="#FF6F00" size={24} /> },
+  { name: 'Gen AI', icon: <FaMagic color="#8E75B2" size={24} /> },
+  { name: 'Computer Vision', icon: <FaEye color="#5C3EE8" size={24} /> }
 ];
 
 const row2 = [
@@ -38,7 +41,9 @@ const row2 = [
   { name: 'MySQL', icon: <SiMysql color="#4479A1" size={24} /> },
   { name: 'Scikit-Learn', icon: <SiScikitlearn color="#F7931E" size={24} /> },
   { name: 'Git', icon: <SiGit color="#F05032" size={24} /> },
-  { name: 'GitHub', icon: <SiGithub color="#ffffff" size={24} /> }
+  { name: 'GitHub', icon: <SiGithub color="#ffffff" size={24} /> },
+  { name: 'Vercel', icon: <SiVercel color="#ffffff" size={24} /> },
+  { name: 'Render', icon: <SiRender color="#46E3B7" size={24} /> }
 ];
 
 const TechPill = ({ name, icon }) => (
