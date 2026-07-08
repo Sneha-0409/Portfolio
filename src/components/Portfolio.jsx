@@ -7,6 +7,7 @@ import Journey from './Journey';
 import Achievements from './Achievements';
 import GithubStats from './GithubStats';
 import PhotoGallery from './PhotoGallery';
+import Certifications from './Certifications';
 import Contact from './Contact';
 import MiniGameOverlay from './MiniGameOverlay';
 import './MiniGameStyles.css';
@@ -291,9 +292,9 @@ export default function Portfolio() {
                       alt="Sneha Sharp"
                       className="hero-image"
                       style={{ position: 'absolute', top: 0, left: 0 }}
-                      initial={{ clipPath: "inset(0% 0% 100% 0%)" }}
-                      whileInView={{ clipPath: "inset(0% 0% 0% 0%)" }}
-                      viewport={{ once: true, amount: 0.5 }}
+                      initial={{ clipPath: "inset(0% 0% 100% 0%)", WebkitClipPath: "inset(0% 0% 100% 0%)" }}
+                      whileInView={{ clipPath: "inset(0% 0% 0% 0%)", WebkitClipPath: "inset(0% 0% 0% 0%)" }}
+                      viewport={{ once: true, amount: 0.1 }}
                       transition={{ duration: 2.5, delay: 0.5, ease: "easeInOut" }}
                     />
 
@@ -411,6 +412,11 @@ export default function Portfolio() {
           {/* Achievements Section */}
           <section id="achievements" className="portfolio-section achievements-section">
             <Achievements />
+          </section>
+
+          {/* Certifications Section */}
+          <section id="certifications" className="portfolio-section certifications-section">
+            <Certifications />
           </section>
 
           {/* GitHub Section */}
