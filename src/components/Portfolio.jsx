@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from 'framer-motion';
 import TechMarquee from './TechMarquee';
 import TopProjects from './TopProjects';
@@ -21,6 +21,7 @@ export default function Portfolio() {
   const [activeSection, setActiveSection] = useState('home');
   const [isGameActive, setIsGameActive] = useState(false);
   const [scrollContainer, setScrollContainer] = useState(null);
+  const scrollRef = useRef(null);
 
   const roles = ["Web Developer", "AI/ML Enthusiast", "Data Science", "DSA", "C++", "Python"];
   const [text, setText] = useState("");
@@ -111,6 +112,11 @@ export default function Portfolio() {
     y.set(0);
   };
 
+  const handleScrollRef = useCallback((node) => {
+    scrollRef.current = node;
+    setScrollContainer(node);
+  }, []);
+
   return (
     <div className="portfolio-container">
       <header className="portfolio-header">
@@ -127,7 +133,7 @@ export default function Portfolio() {
       <main className="portfolio-main">
         <div
           className="portfolio-scroll-container"
-          ref={setScrollContainer}
+          ref={handleScrollRef}
           onScroll={handleScroll}
           style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column', overflowY: 'auto', pointerEvents: 'auto', scrollBehavior: 'smooth' }}
         >
@@ -292,17 +298,15 @@ export default function Portfolio() {
                       alt="Sneha Sharp"
                       className="hero-image"
                       style={{ position: 'absolute', top: 0, left: 0 }}
-                      initial={{ clipPath: "inset(0% 0% 100% 0%)", WebkitClipPath: "inset(0% 0% 100% 0%)" }}
-                      whileInView={{ clipPath: "inset(0% 0% 0% 0%)", WebkitClipPath: "inset(0% 0% 0% 0%)" }}
-                      viewport={{ once: true, amount: 0.1 }}
+                      initial={{ clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)" }}
+                      animate={{ clipPath: activeSection !== 'home' ? "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)" : "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)" }}
                       transition={{ duration: 2.5, delay: 0.5, ease: "easeInOut" }}
                     />
 
                     <motion.div
                       className="scan-line"
                       initial={{ top: "0%", opacity: 0 }}
-                      whileInView={{ top: "100%", opacity: [0, 1, 1, 0] }}
-                      viewport={{ once: true, amount: 0.5 }}
+                      animate={activeSection !== 'home' ? { top: "100%", opacity: [0, 1, 1, 0] } : { top: "0%", opacity: 0 }}
                       transition={{ duration: 2.5, delay: 0.5, ease: "easeInOut" }}
                     />
 

@@ -49,8 +49,8 @@ export default function LoadingScreen({ onComplete }) {
           scale: { duration: 0.5, ease: "easeOut" },
           filter: { duration: 0.5, ease: "easeOut" }
         }}
-        onAnimationComplete={(def) => {
-          if (phase === 'drawing' && def.clipPath) {
+        onAnimationComplete={() => {
+          if (phase === 'drawing') {
             setPhase('glow');
             setTimeout(() => {
               setPhase('splitting');
